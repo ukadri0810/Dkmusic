@@ -9,6 +9,8 @@
     content="Dhruvit Kakkad — live drums and music for weddings, sangeet, parties, company events and live shows."
   />
   <title>Dhruvit Kakkad — Live Drums & Music</title>
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,14 +22,31 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body class="is-loading">
   <div class="grain" aria-hidden="true"></div>
 
-  <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader__brand">
-      <strong>DHRUVIT KAKKAD</strong>
-      <span></span>
-      <small>LIVE DRUMS & MUSIC</small>
+  <div class="loader" id="loader" role="status" aria-label="Loading Dhruvit Kakkad website">
+    <div class="loader__panel loader__panel--top" aria-hidden="true"></div>
+    <div class="loader__panel loader__panel--bottom" aria-hidden="true"></div>
+
+    <div class="loader__content">
+      <div class="loader__name">
+        <span>DHRUVIT</span>
+        <span>KAKKAD</span>
+      </div>
+
+      <div class="loader__rhythm" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i>
+      </div>
+
+      <div class="loader__meta">
+        <span>LIVE DRUMS</span>
+        <span>SHOWS &amp; EVENTS</span>
+      </div>
+
+      <div class="loader__progress" aria-hidden="true">
+        <span></span>
+      </div>
     </div>
   </div>
 
@@ -72,7 +91,7 @@
   <main>
     <section class="hero" id="home">
       <div class="hero__media" aria-hidden="true">
-        <img src="assets/hero.jpg" alt="" />
+        <img src="assets/hero.jpg" alt="" fetchpriority="high" decoding="async" />
       </div>
       <div class="hero__overlay" aria-hidden="true"></div>
 
@@ -144,7 +163,7 @@
         </div>
 
         <figure class="about__portrait reveal">
-          <img src="assets/portrait.jpg" alt="Dhruvit Kakkad at a live event" />
+          <img src="assets/portrait.jpg" alt="Dhruvit Kakkad at a live event" loading="lazy" decoding="async" />
         </figure>
       </div>
     </section>
@@ -168,11 +187,12 @@
         <div class="performance-grid">
           <a
             class="performance performance--featured reveal"
+            aria-label="Watch live show on Instagram"
             href="https://www.instagram.com/reel/DZPwRo3MtE3/?igsh=MW1sN29kbzhydTNmeA=="
             target="_blank"
             rel="noopener"
           >
-            <img src="assets/performance-01.jpg" alt="Live percussion performance in front of an audience" />
+            <img src="assets/performance-01.jpg" alt="Live percussion performance in front of an audience" loading="lazy" decoding="async" />
             <span class="performance__shade"></span>
             <span class="performance__number">01</span>
             <div class="performance__copy">
@@ -184,11 +204,12 @@
 
           <a
             class="performance reveal"
+            aria-label="Watch drums on stage on Instagram"
             href="https://www.instagram.com/reel/DXbxfwyjDb7/?igsh=MWQ5ZDdwMWRkdTRmdQ=="
             target="_blank"
             rel="noopener"
           >
-            <img src="assets/performance-02.jpg" alt="Dhruvit performing drums under stage lighting" />
+            <img src="assets/performance-02.jpg" alt="Dhruvit performing drums under stage lighting" loading="lazy" decoding="async" />
             <span class="performance__shade"></span>
             <span class="performance__number">02</span>
             <div class="performance__copy">
@@ -200,11 +221,12 @@
 
           <a
             class="performance reveal"
+            aria-label="Watch Dhruvit with other musicians on Instagram"
             href="https://www.instagram.com/reel/DWgqSxwDK9Q/?igsh=MzdrdjY1d3lsOHJ2"
             target="_blank"
             rel="noopener"
           >
-            <img src="assets/performance-03.jpg" alt="Percussion collaboration at a live event" />
+            <img src="assets/performance-03.jpg" alt="Percussion collaboration at a live event" loading="lazy" decoding="async" />
             <span class="performance__shade"></span>
             <span class="performance__number">03</span>
             <div class="performance__copy">
