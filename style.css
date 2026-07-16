@@ -183,11 +183,11 @@ html:not(.js) .loader {
 }
 
 .drum-loader__draw {
-  stroke: url(#drumStroke);
-  stroke-width: 1.6;
+  stroke-width: 2.15;
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 4px rgba(241, 238, 232, 0.08));
   stroke-dasharray: 720;
   stroke-dashoffset: 720;
   animation: drawDrumKit 720ms 90ms cubic-bezier(.2, .72, .2, 1) forwards;
@@ -195,15 +195,14 @@ html:not(.js) .loader {
 
 .drum-loader__bass-ring {
   fill: none;
-  stroke: rgba(241, 238, 232, 0.16);
-  stroke-width: 1;
+  stroke: rgba(185, 138, 88, 0.62);
+  stroke-width: 1.35;
   opacity: 0;
   animation: drumDetailIn 320ms 560ms ease forwards;
 }
 
 .drum-loader__stick {
-  stroke: #f1eee8;
-  stroke-width: 3.4;
+  stroke-width: 4.1;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
   transform-box: fill-box;
@@ -1750,5 +1749,29 @@ body.is-ready .hero__content {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* Drum loader visibility fix */
+.drum-loader__kit {
+  opacity: 1;
+}
+
+.drum-loader__draw,
+.drum-loader__stick {
+  shape-rendering: geometricPrecision;
+}
+
+.drum-loader__bass {
+  filter:
+    drop-shadow(0 0 8px rgba(185, 138, 88, 0.1))
+    drop-shadow(0 0 2px rgba(241, 238, 232, 0.12));
+}
+
+@media (max-width: 420px) {
+  .drum-loader {
+    width: min(310px, 92vw);
+    height: 192px;
   }
 }

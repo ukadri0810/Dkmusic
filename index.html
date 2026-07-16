@@ -39,38 +39,42 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <defs>
-            <linearGradient id="drumStroke" x1="60" y1="22" x2="360" y2="230" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#F1EEE8" stop-opacity=".82"/>
-              <stop offset=".58" stop-color="#B98A58"/>
-              <stop offset="1" stop-color="#F1EEE8" stop-opacity=".34"/>
-            </linearGradient>
-          </defs>
-
-          <g class="drum-loader__kit">
-            <circle class="drum-loader__draw drum-loader__bass" cx="210" cy="158" r="63"/>
+<g
+            class="drum-loader__kit"
+            stroke="#F1EEE8"
+            stroke-opacity=".92"
+            fill="none"
+          >
+            <circle
+              class="drum-loader__draw drum-loader__bass"
+              cx="210"
+              cy="158"
+              r="63"
+              fill="#B98A58"
+              fill-opacity=".045"
+            />
             <circle class="drum-loader__bass-ring" cx="210" cy="158" r="48"/>
             <path class="drum-loader__draw" d="M210 95V70"/>
-            <ellipse class="drum-loader__draw" cx="177" cy="82" rx="28" ry="13"/>
-            <ellipse class="drum-loader__draw" cx="243" cy="82" rx="28" ry="13"/>
+            <ellipse class="drum-loader__draw" cx="177" cy="82" rx="28" ry="13" fill="#F1EEE8" fill-opacity=".025"/>
+            <ellipse class="drum-loader__draw" cx="243" cy="82" rx="28" ry="13" fill="#F1EEE8" fill-opacity=".025"/>
             <path class="drum-loader__draw" d="M177 95V115M243 95V115"/>
 
-            <ellipse class="drum-loader__draw drum-loader__snare" cx="128" cy="132" rx="39" ry="15"/>
+            <ellipse class="drum-loader__draw drum-loader__snare" cx="128" cy="132" rx="39" ry="15" fill="#F1EEE8" fill-opacity=".025"/>
             <path class="drum-loader__draw" d="M89 132V150M167 132V150M102 150H154"/>
 
-            <ellipse class="drum-loader__draw" cx="300" cy="133" rx="43" ry="16"/>
+            <ellipse class="drum-loader__draw" cx="300" cy="133" rx="43" ry="16" fill="#F1EEE8" fill-opacity=".025"/>
             <path class="drum-loader__draw" d="M257 133V174M343 133V174M270 174H330"/>
 
             <path class="drum-loader__draw" d="M87 80V126"/>
-            <ellipse class="drum-loader__draw drum-loader__cymbal drum-loader__cymbal--left" cx="87" cy="72" rx="52" ry="9"/>
+            <ellipse class="drum-loader__draw drum-loader__cymbal drum-loader__cymbal--left" cx="87" cy="72" rx="52" ry="9" fill="#B98A58" fill-opacity=".08"/>
             <path class="drum-loader__draw" d="M333 78V129"/>
-            <ellipse class="drum-loader__draw drum-loader__cymbal drum-loader__cymbal--right" cx="333" cy="69" rx="55" ry="10"/>
+            <ellipse class="drum-loader__draw drum-loader__cymbal drum-loader__cymbal--right" cx="333" cy="69" rx="55" ry="10" fill="#B98A58" fill-opacity=".08"/>
 
             <path class="drum-loader__draw" d="M178 219L164 241M242 219L256 241"/>
             <path class="drum-loader__draw" d="M210 222V243"/>
           </g>
 
-          <g class="drum-loader__sticks">
+          <g class="drum-loader__sticks" stroke="#B98A58" fill="none">
             <path class="drum-loader__stick drum-loader__stick--left" d="M124 28L192 126"/>
             <path class="drum-loader__stick drum-loader__stick--right" d="M296 28L228 126"/>
           </g>
