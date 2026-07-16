@@ -1,17 +1,180 @@
-const WHATSAPP_NUMBER='919999999999';
-const body=document.body,loader=document.getElementById('loader'),beat=document.getElementById('beatCount'),header=document.getElementById('header'),menuBtn=document.getElementById('menuBtn'),mobileMenu=document.getElementById('mobileMenu');
-let count=1;const beatTimer=setInterval(()=>{count++;beat.textContent=`0${Math.min(count,3)}`;if(count===3)clearInterval(beatTimer)},520);
-window.addEventListener('load',()=>{setTimeout(()=>loader.classList.add('reveal-out'),1650);setTimeout(()=>loader.classList.add('done'),2780)});
-window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>28),{passive:true});
-function menu(open){mobileMenu.classList.toggle('open',open);mobileMenu.setAttribute('aria-hidden',String(!open));body.classList.toggle('locked',open)}
-menuBtn.addEventListener('click',()=>menu(!mobileMenu.classList.contains('open')));mobileMenu.querySelectorAll('a,button').forEach(x=>x.addEventListener('click',()=>menu(false)));
-const observer=new IntersectionObserver((entries,o)=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}}),{threshold:.14,rootMargin:'0px 0px -40px'});document.querySelectorAll('.reveal').forEach((x,i)=>{x.style.transitionDelay=`${Math.min((i%3)*75,150)}ms`;observer.observe(x)});
-const formatImage=document.getElementById('formatImage'),formatNumber=document.getElementById('formatNumber'),imageWrap=document.querySelector('.format-image');document.querySelectorAll('.format-option').forEach(btn=>btn.addEventListener('click',()=>{if(btn.classList.contains('is-active'))return;document.querySelectorAll('.format-option').forEach(x=>x.classList.remove('is-active'));btn.classList.add('is-active');imageWrap.classList.add('changing');setTimeout(()=>{formatImage.src=btn.dataset.image;formatNumber.textContent=`${btn.dataset.number} / PERFORMANCE FORMAT`;imageWrap.classList.remove('changing')},220)}));
-const enquiry=document.getElementById('enquiry'),form=document.getElementById('enquiryForm'),steps=[...document.querySelectorAll('.step')],counter=document.getElementById('stepCounter'),bar=document.getElementById('progressBar'),back=document.getElementById('backBtn'),next=document.getElementById('nextBtn'),submit=document.getElementById('submitBtn'),error=document.getElementById('formError'),success=document.getElementById('success'),wa=document.getElementById('whatsappLink');let step=0;
-function openEnquiry(){enquiry.classList.add('open');enquiry.setAttribute('aria-hidden','false');body.classList.add('locked')}
-function closeEnquiry(){enquiry.classList.remove('open');enquiry.setAttribute('aria-hidden','true');body.classList.remove('locked')}
-document.querySelectorAll('.js-enquire').forEach(x=>x.addEventListener('click',openEnquiry));document.querySelectorAll('[data-close]').forEach(x=>x.addEventListener('click',closeEnquiry));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeEnquiry()});
-function show(i){step=i;steps.forEach((x,n)=>x.classList.toggle('is-active',n===i));counter.textContent=`0${i+1} / 0${steps.length}`;bar.style.width=`${((i+1)/steps.length)*100}%`;back.classList.toggle('show',i>0);next.style.display=i===steps.length-1?'none':'inline-flex';submit.classList.toggle('show',i===steps.length-1);error.textContent=''}
-function validate(){const area=steps[step];for(const field of area.querySelectorAll('[required]')){if(field.type==='radio'){if(!area.querySelector(`input[name="${field.name}"]:checked`))return'Please select one option before continuing.'}else if(!field.value.trim()){field.focus();return'Please complete the required fields before continuing.'}else if(!field.checkValidity()){field.focus();return'Please enter valid information.'}}return''}
-next.addEventListener('click',()=>{const msg=validate();if(msg)return error.textContent=msg;show(Math.min(step+1,steps.length-1))});back.addEventListener('click',()=>show(Math.max(step-1,0)));
-form.addEventListener('submit',e=>{e.preventDefault();const issue=validate();if(issue)return error.textContent=issue;const d=Object.fromEntries(new FormData(form).entries());const message=['Hi Dhruvit, I would like to check availability for an event.','',`Event: ${d.eventType||'-'}`,`Date: ${d.eventDate||'-'}`,`City: ${d.city||'-'}`,`Performance: ${d.format||'-'}`,`Name: ${d.name||'-'}`,`Phone: ${d.phone||'-'}`,`Note: ${d.note||'None'}`,'','Sent from the portfolio website.'].join('\n');wa.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;form.hidden=true;success.hidden=false});show(0);
+const WHATSAPP_NUMBER = "919999999999";
+
+const body = document.body;
+const loader = document.getElementById("loader");
+const header = document.getElementById("header");
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+window.addEventListener("load", () => {
+  window.setTimeout(() => {
+    loader.classList.add("is-hidden");
+  }, 1200);
+});
+
+window.addEventListener("scroll", () => {
+  header.classList.toggle("is-scrolled", window.scrollY > 24);
+}, { passive: true });
+
+function setMobileMenu(open) {
+  mobileMenu.classList.toggle("is-open", open);
+  mobileMenu.setAttribute("aria-hidden", String(!open));
+  menuToggle.setAttribute("aria-expanded", String(open));
+  body.classList.toggle("is-locked", open);
+}
+
+menuToggle.addEventListener("click", () => {
+  setMobileMenu(!mobileMenu.classList.contains("is-open"));
+});
+
+mobileMenu.querySelectorAll("a, button").forEach((item) => {
+  item.addEventListener("click", () => setMobileMenu(false));
+});
+
+/* Scroll reveals */
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("is-visible");
+    observer.unobserve(entry.target);
+  });
+}, {
+  threshold: 0.13,
+  rootMargin: "0px 0px -35px 0px"
+});
+
+document.querySelectorAll(".reveal").forEach((element, index) => {
+  element.style.transitionDelay = `${Math.min((index % 3) * 65, 130)}ms`;
+  revealObserver.observe(element);
+});
+
+/* Enquiry drawer */
+const enquiry = document.getElementById("enquiry");
+const enquiryForm = document.getElementById("enquiryForm");
+const steps = [...document.querySelectorAll(".step")];
+const stepCounter = document.getElementById("stepCounter");
+const progressBar = document.getElementById("progressBar");
+const nextButton = document.getElementById("nextButton");
+const backButton = document.getElementById("backButton");
+const submitButton = document.getElementById("submitButton");
+const formError = document.getElementById("formError");
+const success = document.getElementById("success");
+const whatsappLink = document.getElementById("whatsappLink");
+
+let activeStep = 0;
+
+function openEnquiry() {
+  enquiry.classList.add("is-open");
+  enquiry.setAttribute("aria-hidden", "false");
+  body.classList.add("is-locked");
+}
+
+function closeEnquiry() {
+  enquiry.classList.remove("is-open");
+  enquiry.setAttribute("aria-hidden", "true");
+  body.classList.remove("is-locked");
+}
+
+document.querySelectorAll(".js-open-enquiry").forEach((button) => {
+  button.addEventListener("click", openEnquiry);
+});
+
+document.querySelectorAll("[data-close-enquiry]").forEach((button) => {
+  button.addEventListener("click", closeEnquiry);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && enquiry.classList.contains("is-open")) {
+    closeEnquiry();
+  }
+});
+
+function showStep(index) {
+  activeStep = index;
+
+  steps.forEach((step, stepIndex) => {
+    step.classList.toggle("is-active", stepIndex === activeStep);
+  });
+
+  stepCounter.textContent = `0${activeStep + 1} / 0${steps.length}`;
+  progressBar.style.width = `${((activeStep + 1) / steps.length) * 100}%`;
+  backButton.classList.toggle("is-visible", activeStep > 0);
+  nextButton.style.display = activeStep === steps.length - 1 ? "none" : "inline-flex";
+  submitButton.classList.toggle("is-visible", activeStep === steps.length - 1);
+  formError.textContent = "";
+}
+
+function validateStep(index) {
+  const step = steps[index];
+  const requiredFields = [...step.querySelectorAll("[required]")];
+
+  for (const field of requiredFields) {
+    if (field.type === "radio") {
+      const checked = step.querySelector(`input[name="${field.name}"]:checked`);
+      if (!checked) {
+        return "Please select one option before continuing.";
+      }
+    } else if (!field.value.trim()) {
+      field.focus();
+      return "Please complete the required fields before continuing.";
+    } else if (!field.checkValidity()) {
+      field.focus();
+      return "Please enter valid information.";
+    }
+  }
+
+  return "";
+}
+
+nextButton.addEventListener("click", () => {
+  const error = validateStep(activeStep);
+
+  if (error) {
+    formError.textContent = error;
+    return;
+  }
+
+  showStep(Math.min(activeStep + 1, steps.length - 1));
+});
+
+backButton.addEventListener("click", () => {
+  showStep(Math.max(activeStep - 1, 0));
+});
+
+function buildWhatsAppMessage(data) {
+  return [
+    "Hi Dhruvit, I would like to check availability for an event.",
+    "",
+    `Event: ${data.eventType || "-"}`,
+    `Date: ${data.eventDate || "-"}`,
+    `City: ${data.city || "-"}`,
+    `Performance: ${data.format || "-"}`,
+    `Name: ${data.name || "-"}`,
+    `Phone: ${data.phone || "-"}`,
+    `Message: ${data.note || "None"}`,
+    "",
+    "Sent from the portfolio website."
+  ].join("\n");
+}
+
+enquiryForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const error = validateStep(activeStep);
+
+  if (error) {
+    formError.textContent = error;
+    return;
+  }
+
+  const data = Object.fromEntries(new FormData(enquiryForm).entries());
+  const message = buildWhatsAppMessage(data);
+
+  whatsappLink.href =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  enquiryForm.hidden = true;
+  success.hidden = false;
+});
+
+showStep(0);
