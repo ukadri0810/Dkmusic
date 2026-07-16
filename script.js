@@ -6,11 +6,35 @@ const header = document.getElementById("header");
 const menuToggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
 
-window.addEventListener("load", () => {
+const prefersReducedMotion =
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const loaderStartedAt = performance.now();
+let loaderFinished = false;
+
+function finishLoader() {
+  if (loaderFinished) return;
+  loaderFinished = true;
+
+  body.classList.add("is-ready");
+  loader.classList.add("is-exiting");
+
+  const exitDuration = prefersReducedMotion ? 40 : 850;
+
   window.setTimeout(() => {
     loader.classList.add("is-hidden");
-  }, 1200);
+    body.classList.remove("is-loading");
+  }, exitDuration);
+}
+
+window.addEventListener("load", () => {
+  const minimumDuration = prefersReducedMotion ? 0 : 1350;
+  const elapsed = performance.now() - loaderStartedAt;
+  window.setTimeout(finishLoader, Math.max(0, minimumDuration - elapsed));
 });
+
+// Safety fallback so the opening can never remain stuck.
+window.setTimeout(finishLoader, 4200);
 
 window.addEventListener("scroll", () => {
   header.classList.toggle("is-scrolled", window.scrollY > 24);
@@ -48,6 +72,31 @@ document.querySelectorAll(".reveal").forEach((element, index) => {
   revealObserver.observe(element);
 });
 
+/* Active navigation */
+const navLinks = [...document.querySelectorAll(".desktop-nav a")];
+const trackedSections = navLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+
+    navLinks.forEach((link) => {
+      link.classList.toggle(
+        "is-active",
+        link.getAttribute("href") === `#${entry.target.id}`
+      );
+    });
+  });
+}, {
+  rootMargin: "-35% 0px -55% 0px",
+  threshold: 0
+});
+
+trackedSections.forEach((section) => sectionObserver.observe(section));
+
+
 /* Enquiry drawer */
 const enquiry = document.getElementById("enquiry");
 const enquiryForm = document.getElementById("enquiryForm");
@@ -64,6 +113,7 @@ const whatsappLink = document.getElementById("whatsappLink");
 let activeStep = 0;
 
 function openEnquiry() {
+  setMobileMenu(false);
   enquiry.classList.add("is-open");
   enquiry.setAttribute("aria-hidden", "false");
   body.classList.add("is-locked");
