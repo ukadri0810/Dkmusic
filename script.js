@@ -19,7 +19,7 @@ function finishLoader() {
   body.classList.add("is-ready");
   loader.classList.add("is-exiting");
 
-  const exitDuration = prefersReducedMotion ? 40 : 850;
+  const exitDuration = prefersReducedMotion ? 40 : 720;
 
   window.setTimeout(() => {
     loader.classList.add("is-hidden");
@@ -28,7 +28,7 @@ function finishLoader() {
 }
 
 window.addEventListener("load", () => {
-  const minimumDuration = prefersReducedMotion ? 0 : 1350;
+  const minimumDuration = prefersReducedMotion ? 0 : 1580;
   const elapsed = performance.now() - loaderStartedAt;
   window.setTimeout(finishLoader, Math.max(0, minimumDuration - elapsed));
 });
