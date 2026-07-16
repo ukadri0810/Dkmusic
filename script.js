@@ -23,7 +23,7 @@ function finishLoader() {
   body.classList.add("is-ready");
   loader.classList.add("is-exiting");
 
-  const exitDuration = prefersReducedMotion ? 180 : 780;
+  const exitDuration = prefersReducedMotion ? 220 : 780;
 
   loaderHideTimer = window.setTimeout(() => {
     loader.classList.add("is-hidden");
@@ -38,7 +38,7 @@ function startLoader() {
     window.requestAnimationFrame(() => {
       loader.classList.add("is-playing");
 
-      const visibleDuration = prefersReducedMotion ? 900 : 2100;
+      const visibleDuration = prefersReducedMotion ? 1050 : 2250;
       loaderExitTimer = window.setTimeout(finishLoader, visibleDuration);
     });
   });
