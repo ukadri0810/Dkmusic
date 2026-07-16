@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090909" />
+  <meta
+    name="description"
+    content="Dhruvit Kakkad — live percussionist and performer for weddings, private celebrations, corporate events and artist collaborations."
+  />
+  <title>Dhruvit Kakkad — Live Percussionist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__pulse"></div>
+    <div class="preloader__mark">DK</div>
+    <p>Live percussion · Events · Collaborations</p>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#home" aria-label="Dhruvit Kakkad home">
+      <span class="brand__mark">DK</span>
+      <span class="brand__copy">
+        <strong>Dhruvit Kakkad</strong>
+        <small>Live percussionist</small>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#performances">Performances</a>
+      <a href="#formats">Formats</a>
+      <a href="#gallery">Stage moments</a>
+    </nav>
+
+    <button class="header-cta js-open-enquiry" type="button">
+      Check availability
+    </button>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-controls="mobileMenu"
+      aria-expanded="false"
+      aria-label="Open menu"
+    >
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <a href="#about">About</a>
+      <a href="#performances">Performances</a>
+      <a href="#formats">Performance formats</a>
+      <a href="#gallery">Stage moments</a>
+      <button class="button button--light js-open-enquiry" type="button">
+        Check availability
+      </button>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero__wash" aria-hidden="true"></div>
+      <div class="hero__spotlight hero__spotlight--one" aria-hidden="true"></div>
+      <div class="hero__spotlight hero__spotlight--two" aria-hidden="true"></div>
+
+      <div class="hero__media" aria-hidden="true">
+        <img src="assets/hero-performer.jpg" alt="" />
+        <div class="hero__media-overlay"></div>
+      </div>
+
+      <div class="hero__content">
+        <p class="eyebrow reveal">Percussion · Drums · Darbuka · Live collaborations</p>
+
+        <h1 class="reveal">
+          Rhythm that brings
+          <em>the room alive.</em>
+        </h1>
+
+        <p class="hero__lead reveal">
+          Live percussion experiences for weddings, private celebrations,
+          corporate events and artist-led stages.
+        </p>
+
+        <div class="hero__actions reveal">
+          <a class="button button--light" href="#performances">Watch performances</a>
+          <button class="button button--ghost js-open-enquiry" type="button">
+            Check availability
+          </button>
+        </div>
+
+        <div class="hero__meta reveal">
+          <span>Rajkot</span>
+          <i></i>
+          <span>Goa</span>
+          <i></i>
+          <span>Chennai</span>
+          <i></i>
+          <span>Destination events</span>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#about" aria-label="Scroll to about section">
+        <span>Scroll to feel the beat</span>
+        <i></i>
+      </a>
+    </section>
+
+    <section class="section intro" id="about">
+      <div class="section-shell intro__grid">
+        <div class="intro__headline">
+          <p class="eyebrow reveal">The artist behind the rhythm</p>
+          <h2 class="display-title reveal">
+            Not background music.
+            <em>A performance people remember.</em>
+          </h2>
+        </div>
+
+        <div class="intro__copy reveal">
+          <p>
+            Dhruvit Kakkad is a live percussionist who brings stage energy,
+            improvisation and audience connection into every set.
+          </p>
+          <p>
+            From high-energy drum performances to expressive darbuka moments,
+            each experience is shaped around the event, the artists on stage
+            and the people in the room.
+          </p>
+          <a class="text-link" href="https://www.instagram.com/dhruvitkakkadmusic" target="_blank" rel="noopener">
+            Explore the Instagram profile
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section-shell editorial-strip reveal">
+        <div class="editorial-strip__image">
+          <img src="assets/about-portrait.jpg" alt="Dhruvit Kakkad at an event" />
+        </div>
+        <div class="editorial-strip__quote">
+          <span>Live.</span>
+          <span>Responsive.</span>
+          <span>Unscripted.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section performances" id="performances">
+      <div class="section-shell section-heading">
+        <div>
+          <p class="eyebrow reveal">Selected Instagram performances</p>
+          <h2 class="display-title reveal">
+            Moments from
+            <em>the stage.</em>
+          </h2>
+        </div>
+        <p class="section-heading__copy reveal">
+          The active reel loads from Instagram when it reaches the screen.
+          Playback remains muted wherever Instagram and the browser allow it.
+        </p>
+      </div>
+
+      <div class="reel-stage reveal" aria-roledescription="carousel">
+        <button class="reel-arrow reel-arrow--prev" id="reelPrev" type="button" aria-label="Previous performance">
+          ←
+        </button>
+
+        <div class="reel-carousel" id="reelCarousel">
+          <article
+            class="reel-card is-active"
+            data-index="0"
+            data-embed="https://www.instagram.com/reel/DZPwRo3MtE3/embed/"
+          >
+            <div class="reel-card__frame">
+              <img src="assets/performance-01.jpg" alt="Instagram performance preview" />
+              <iframe
+                title="Instagram performance 1"
+                loading="lazy"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+              <div class="reel-card__shade"></div>
+              <div class="reel-card__status">
+                <span class="live-dot"></span>
+                Instagram playback
+              </div>
+            </div>
+            <div class="reel-card__caption">
+              <div>
+                <small>Performance 01</small>
+                <h3>Live percussion energy</h3>
+              </div>
+              <a
+                href="https://www.instagram.com/reel/DZPwRo3MtE3/?igsh=MW1sN29kbzhydTNmeA=="
+                target="_blank"
+                rel="noopener"
+              >
+                Watch full reel <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="reel-card"
+            data-index="1"
+            data-embed="https://www.instagram.com/reel/DXbxfwyjDb7/embed/"
+          >
+            <div class="reel-card__frame">
+              <img src="assets/performance-02.jpg" alt="Instagram performance preview" />
+              <iframe
+                title="Instagram performance 2"
+                loading="lazy"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+              <div class="reel-card__shade"></div>
+              <div class="reel-card__status">
+                <span class="live-dot"></span>
+                Instagram playback
+              </div>
+            </div>
+            <div class="reel-card__caption">
+              <div>
+                <small>Performance 02</small>
+                <h3>Audience in the moment</h3>
+              </div>
+              <a
+                href="https://www.instagram.com/reel/DXbxfwyjDb7/?igsh=MWQ5ZDdwMWRkdTRmdQ=="
+                target="_blank"
+                rel="noopener"
+              >
+                Watch full reel <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="reel-card"
+            data-index="2"
+            data-embed="https://www.instagram.com/p/DU-W9TSDIQc/embed/"
+          >
+            <div class="reel-card__frame">
+              <img src="assets/performance-03.jpg" alt="Instagram performance preview" />
+              <iframe
+                title="Instagram performance 3"
+                loading="lazy"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+              <div class="reel-card__shade"></div>
+              <div class="reel-card__status">
+                <span class="live-dot"></span>
+                Instagram playback
+              </div>
+            </div>
+            <div class="reel-card__caption">
+              <div>
+                <small>Performance 03</small>
+                <h3>Close-up rhythm session</h3>
+              </div>
+              <a
+                href="https://www.instagram.com/p/DU-W9TSDIQc/?igsh=MWNhNmkydDAzc2RoNA=="
+                target="_blank"
+                rel="noopener"
+              >
+                View on Instagram <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="reel-card"
+            data-index="3"
+            data-embed="https://www.instagram.com/reel/DWgqSxwDK9Q/embed/"
+          >
+            <div class="reel-card__frame">
+              <img src="assets/performance-04.jpg" alt="Instagram performance preview" />
+              <iframe
+                title="Instagram performance 4"
+                loading="lazy"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+              ></iframe>
+              <div class="reel-card__shade"></div>
+              <div class="reel-card__status">
+                <span class="live-dot"></span>
+                Instagram playback
+              </div>
+            </div>
+            <div class="reel-card__caption">
+              <div>
+                <small>Performance 04</small>
+                <h3>Stage collaboration</h3>
+              </div>
+              <a
+                href="https://www.instagram.com/reel/DWgqSxwDK9Q/?igsh=MzdrdjY1d3lsOHJ2"
+                target="_blank"
+                rel="noopener"
+              >
+                Watch full reel <span>↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <button class="reel-arrow reel-arrow--next" id="reelNext" type="button" aria-label="Next performance">
+          →
+        </button>
+      </div>
+
+      <div class="reel-pagination" id="reelPagination" aria-label="Select performance">
+        <button class="is-active" data-slide="0" type="button" aria-label="Performance 1"></button>
+        <button data-slide="1" type="button" aria-label="Performance 2"></button>
+        <button data-slide="2" type="button" aria-label="Performance 3"></button>
+        <button data-slide="3" type="button" aria-label="Performance 4"></button>
+      </div>
+
+      <div class="embed-note section-shell">
+        <span>Note</span>
+        Instagram controls playback inside its own player. The website requests muted autoplay, but some browsers may still require one tap.
+      </div>
+    </section>
+
+    <section class="section formats" id="formats">
+      <div class="section-shell">
+        <div class="section-heading section-heading--wide">
+          <div>
+            <p class="eyebrow reveal">Flexible for every stage</p>
+            <h2 class="display-title reveal">
+              One artist.
+              <em>Different live experiences.</em>
+            </h2>
+          </div>
+        </div>
+
+        <div class="format-list">
+          <article class="format-row reveal">
+            <span class="format-row__number">01</span>
+            <div>
+              <h3>Solo percussion</h3>
+              <p>Focused live moments for entries, celebrations, intimate events and DJ-led sets.</p>
+            </div>
+            <button type="button" class="circle-button js-open-enquiry" aria-label="Enquire for solo percussion">↗</button>
+          </article>
+
+          <article class="format-row reveal">
+            <span class="format-row__number">02</span>
+            <div>
+              <h3>Artist or DJ collaboration</h3>
+              <p>Responsive percussion designed around singers, DJs and the energy already on stage.</p>
+            </div>
+            <button type="button" class="circle-button js-open-enquiry" aria-label="Enquire for collaboration">↗</button>
+          </article>
+
+          <article class="format-row reveal">
+            <span class="format-row__number">03</span>
+            <div>
+              <h3>Custom live setup</h3>
+              <p>A larger event experience shaped around the venue, audience and planned performance flow.</p>
+            </div>
+            <button type="button" class="circle-button js-open-enquiry" aria-label="Enquire for a custom setup">↗</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section instruments">
+      <div class="instrument-orbit" aria-hidden="true"></div>
+
+      <div class="section-shell instruments__content">
+        <p class="eyebrow reveal">Sound and style</p>
+        <h2 class="display-title reveal">
+          Different instruments.
+          <em>One unmistakable energy.</em>
+        </h2>
+
+        <div class="instrument-grid">
+          <article class="instrument-card reveal">
+            <span>01</span>
+            <h3>Drums</h3>
+            <p>Big-stage impact and high-energy performance moments.</p>
+          </article>
+          <article class="instrument-card reveal">
+            <span>02</span>
+            <h3>Darbuka</h3>
+            <p>Expressive hand percussion with a close, rhythmic feel.</p>
+          </article>
+          <article class="instrument-card reveal">
+            <span>03</span>
+            <h3>Live fusion</h3>
+            <p>Improvised performance built around the artists and audience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+      <div class="section-shell">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow reveal">Beyond the polished reel</p>
+            <h2 class="display-title reveal">
+              Stage moments,
+              <em>up close.</em>
+            </h2>
+          </div>
+          <p class="section-heading__copy reveal">
+            A visual mix of preparation, performance and the split-second
+            moments that make live music feel real.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item gallery-item--tall reveal">
+            <img src="assets/gallery-darbuka.jpg" alt="Darbuka performance moment" />
+            <figcaption>Darbuka session</figcaption>
+          </figure>
+          <figure class="gallery-item reveal">
+            <img src="assets/performance-02.jpg" alt="Live performance with an audience" />
+            <figcaption>From the stage</figcaption>
+          </figure>
+          <figure class="gallery-item reveal">
+            <img src="assets/gallery-darbuka-2.jpg" alt="Percussion performance outdoors" />
+            <figcaption>Rhythm, anywhere</figcaption>
+          </figure>
+          <figure class="gallery-item gallery-item--wide reveal">
+            <img src="assets/performance-04.jpg" alt="Black and white drum performance" />
+            <figcaption>Focus before the beat</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section events">
+      <div class="section-shell events__layout">
+        <div class="events__headline">
+          <p class="eyebrow reveal">Available for</p>
+          <h2 class="display-title reveal">
+            A soundtrack for
+            <em>the moments that matter.</em>
+          </h2>
+        </div>
+
+        <div class="event-marquee reveal" aria-label="Event types">
+          <div class="event-marquee__track">
+            <span>Weddings</span><i></i>
+            <span>Sangeet</span><i></i>
+            <span>Corporate events</span><i></i>
+            <span>Private celebrations</span><i></i>
+            <span>Concerts</span><i></i>
+            <span>Destination events</span><i></i>
+            <span>Artist collaborations</span><i></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="final-cta__image" aria-hidden="true">
+        <img src="assets/performance-01.jpg" alt="" />
+      </div>
+      <div class="final-cta__shade"></div>
+      <div class="final-cta__content section-shell">
+        <p class="eyebrow reveal">Planning an event?</p>
+        <h2 class="reveal">
+          Your event has a moment everyone waits for.
+          <em>Let’s make it unforgettable.</em>
+        </h2>
+        <button class="button button--light js-open-enquiry reveal" type="button">
+          Check your date
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="section-shell footer__grid">
+      <div>
+        <a class="brand brand--footer" href="#home">
+          <span class="brand__mark">DK</span>
+          <span class="brand__copy">
+            <strong>Dhruvit Kakkad</strong>
+            <small>Live percussionist</small>
+          </span>
+        </a>
+        <p>Live performance portfolio demo.</p>
+      </div>
+
+      <div class="footer__links">
+        <a href="https://www.instagram.com/dhruvitkakkadmusic" target="_blank" rel="noopener">Instagram ↗</a>
+        <button class="js-open-enquiry" type="button">Enquire</button>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="mobile-booking js-open-enquiry" type="button">
+    Check availability
+  </button>
+
+  <div class="enquiry-modal" id="enquiryModal" aria-hidden="true">
+    <div class="enquiry-modal__backdrop" data-close-enquiry></div>
+
+    <section
+      class="enquiry-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="enquiryTitle"
+    >
+      <div class="enquiry-panel__top">
+        <div>
+          <span>Booking enquiry</span>
+          <strong id="stepLabel">Step 1 of 5</strong>
+        </div>
+        <button type="button" class="modal-close" data-close-enquiry aria-label="Close enquiry form">×</button>
+      </div>
+
+      <div class="progress">
+        <span id="progressBar"></span>
+      </div>
+
+      <form id="enquiryForm" novalidate>
+        <div class="form-step is-active" data-step="0">
+          <p class="form-kicker">Let’s start with the occasion.</p>
+          <h2 id="enquiryTitle">What are you planning?</h2>
+
+          <div class="choice-grid">
+            <label class="choice">
+              <input type="radio" name="eventType" value="Wedding" required />
+              <span>Wedding</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="eventType" value="Sangeet / Reception" />
+              <span>Sangeet / Reception</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="eventType" value="Corporate event" />
+              <span>Corporate event</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="eventType" value="Private celebration" />
+              <span>Private celebration</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="eventType" value="Concert / Live show" />
+              <span>Concert / Live show</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="eventType" value="Other" />
+              <span>Other</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="1">
+          <p class="form-kicker">Date and place</p>
+          <h2>When and where is the event?</h2>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Event date</span>
+              <input type="date" name="eventDate" required />
+            </label>
+            <label class="field">
+              <span>City</span>
+              <input type="text" name="city" placeholder="e.g. Mumbai" required />
+            </label>
+            <label class="field field--full">
+              <span>Venue <small>(optional)</small></span>
+              <input type="text" name="venue" placeholder="Venue name or area" />
+            </label>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="2">
+          <p class="form-kicker">Performance direction</p>
+          <h2>What kind of experience do you need?</h2>
+
+          <div class="choice-grid choice-grid--single">
+            <label class="choice choice--large">
+              <input type="radio" name="format" value="Solo percussion" required />
+              <span>
+                <strong>Solo percussion</strong>
+                <small>For entries, intimate moments and DJ-led sets</small>
+              </span>
+            </label>
+            <label class="choice choice--large">
+              <input type="radio" name="format" value="DJ / artist collaboration" />
+              <span>
+                <strong>DJ / artist collaboration</strong>
+                <small>Live percussion shaped around an existing act</small>
+              </span>
+            </label>
+            <label class="choice choice--large">
+              <input type="radio" name="format" value="Custom live setup" />
+              <span>
+                <strong>Custom live setup</strong>
+                <small>A larger experience planned for your event</small>
+              </span>
+            </label>
+            <label class="choice choice--large">
+              <input type="radio" name="format" value="Not sure yet" />
+              <span>
+                <strong>Not sure yet</strong>
+                <small>Recommend the right format for my event</small>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="3">
+          <p class="form-kicker">A little more context</p>
+          <h2>Tell us about the event.</h2>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Approximate guests</span>
+              <select name="guests" required>
+                <option value="">Select range</option>
+                <option>Under 100</option>
+                <option>100–250</option>
+                <option>250–500</option>
+                <option>500–1000</option>
+                <option>1000+</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Performance duration</span>
+              <select name="duration" required>
+                <option value="">Select duration</option>
+                <option>15–30 minutes</option>
+                <option>30–60 minutes</option>
+                <option>60–90 minutes</option>
+                <option>Multiple sets</option>
+                <option>Not decided</option>
+              </select>
+            </label>
+            <label class="field field--full">
+              <span>Anything else? <small>(optional)</small></span>
+              <textarea
+                name="notes"
+                rows="4"
+                placeholder="Share the event mood, artist setup, entry plan or any special request."
+              ></textarea>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="4">
+          <p class="form-kicker">Last step</p>
+          <h2>How should Dhruvit reach you?</h2>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Your name</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label class="field">
+              <span>WhatsApp number</span>
+              <input
+                type="tel"
+                name="phone"
+                autocomplete="tel"
+                placeholder="+91"
+                required
+              />
+            </label>
+            <label class="field field--full">
+              <span>Email <small>(optional)</small></span>
+              <input type="email" name="email" autocomplete="email" />
+            </label>
+          </div>
+        </div>
+
+        <div class="form-error" id="formError" role="alert"></div>
+
+        <div class="form-actions">
+          <button class="button button--ghost button--back" id="backStep" type="button">
+            Back
+          </button>
+          <button class="button button--light" id="nextStep" type="button">
+            Continue
+          </button>
+          <button class="button button--light" id="submitEnquiry" type="submit">
+            Send enquiry
+          </button>
+        </div>
+      </form>
+
+      <div class="success-state" id="successState" hidden>
+        <span class="success-state__mark">✓</span>
+        <p class="form-kicker">Enquiry prepared</p>
+        <h2>Your event details are ready.</h2>
+        <p>
+          The demo stores the enquiry on this device. Connect a form endpoint
+          or update the WhatsApp number in <strong>script.js</strong> before launch.
+        </p>
+        <div class="success-state__actions">
+          <a class="button button--light" id="whatsappLink" href="#" target="_blank" rel="noopener">
+            Continue on WhatsApp
+          </a>
+          <button class="button button--ghost" id="newEnquiry" type="button">
+            Start another enquiry
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
