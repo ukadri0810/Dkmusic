@@ -28,7 +28,7 @@ function finishLoader() {
 }
 
 window.addEventListener("load", () => {
-  const minimumDuration = prefersReducedMotion ? 0 : 1580;
+  const minimumDuration = prefersReducedMotion ? 0 : 1750;
   const elapsed = performance.now() - loaderStartedAt;
   window.setTimeout(finishLoader, Math.max(0, minimumDuration - elapsed));
 });
