@@ -132,111 +132,151 @@ html:not(.js) .loader {
   width: 100%;
   height: 50.2%;
   background: #050608;
-  transition: transform 820ms cubic-bezier(.78, 0, .2, 1);
+  transition: transform 720ms cubic-bezier(.78, 0, .2, 1);
 }
 
 .loader__panel--top {
   top: 0;
-  transform-origin: top;
 }
 
 .loader__panel--bottom {
   bottom: 0;
-  transform-origin: bottom;
 }
 
 .loader__content {
   position: relative;
   z-index: 2;
-  width: min(440px, calc(100vw - 48px));
-  transition:
-    opacity 240ms ease,
-    transform 360ms cubic-bezier(.2, .7, .2, 1);
-}
-
-.loader__name {
+  width: min(330px, calc(100vw - 48px));
   display: grid;
-  font-family: var(--display);
-  font-size: clamp(3.2rem, 8vw, 5.7rem);
-  font-weight: 800;
-  line-height: 0.78;
-  letter-spacing: -0.065em;
+  justify-items: center;
+  transition:
+    opacity 220ms ease,
+    transform 320ms cubic-bezier(.2, .7, .2, 1);
 }
 
-.loader__name span {
-  display: block;
+.darbuka-loader {
+  position: relative;
+  width: 146px;
+  height: 210px;
+  display: grid;
+  place-items: center;
+  transform-origin: 50% 22%;
+  animation: darbukaBodyBeat 1080ms 340ms ease-in-out both;
+}
+
+.darbuka-loader__glow {
+  position: absolute;
+  top: 19px;
+  left: 50%;
+  width: 94px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(185, 138, 88, 0.2);
+  filter: blur(20px);
   opacity: 0;
-  transform: translateY(20px);
-  animation: loaderNameIn 580ms cubic-bezier(.2, .75, .2, 1) forwards;
+  transform: translateX(-50%) scale(.65);
+  animation: darbukaGlow 1080ms 340ms ease-in-out both;
 }
 
-.loader__name span:nth-child(2) {
-  color: var(--brass);
-  animation-delay: 80ms;
+.darbuka-loader__svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
-.loader__rhythm {
-  height: 34px;
-  margin: 27px 0 18px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
+.darbuka-loader__line {
+  stroke: url(#darbukaStroke);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 560;
+  stroke-dashoffset: 560;
+  animation: drawDarbuka 620ms 90ms cubic-bezier(.2, .72, .2, 1) forwards;
 }
 
-.loader__rhythm i {
-  width: 2px;
-  height: 8px;
-  background: rgba(241, 238, 232, 0.38);
-  transform-origin: center;
-  animation: loaderBeat 720ms ease-in-out 2;
+.darbuka-loader__head {
+  animation-duration: 430ms;
 }
 
-.loader__rhythm i:nth-child(2) {
-  animation-delay: 70ms;
-}
-
-.loader__rhythm i:nth-child(3) {
-  height: 14px;
-  background: var(--brass);
-  animation-delay: 140ms;
-}
-
-.loader__rhythm i:nth-child(4) {
-  animation-delay: 210ms;
-}
-
-.loader__rhythm i:nth-child(5) {
+.darbuka-loader__waist,
+.darbuka-loader__base {
   animation-delay: 280ms;
+  animation-duration: 440ms;
 }
 
-.loader__meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+.darbuka-loader__ring {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1.25;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.darbuka-loader__ring--one {
+  animation: darbukaRing 430ms 500ms cubic-bezier(.15, .65, .2, 1) both;
+}
+
+.darbuka-loader__ring--two {
+  animation: darbukaRing 460ms 820ms cubic-bezier(.15, .65, .2, 1) both;
+}
+
+.darbuka-loader__ring--three {
+  animation: darbukaFinalRing 620ms 1080ms cubic-bezier(.15, .65, .2, 1) both;
+}
+
+.darbuka-loader__hit {
+  fill: var(--brass);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: darbukaHit 1080ms 410ms ease-in-out both;
+}
+
+.loader__identity {
+  margin-top: 9px;
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: loaderIdentityIn 480ms 600ms cubic-bezier(.2, .72, .2, 1) forwards;
+}
+
+.loader__identity strong {
+  font-family: var(--display);
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: .045em;
+}
+
+.loader__identity span {
   color: var(--muted);
-  font-size: 0.55rem;
+  font-size: .5rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: .19em;
 }
 
-.loader__progress {
+.loader__line {
+  width: 100%;
   height: 1px;
-  margin-top: 16px;
+  margin-top: 17px;
   overflow: hidden;
-  background: rgba(241, 238, 232, 0.12);
+  background: rgba(241, 238, 232, .1);
 }
 
-.loader__progress span {
+.loader__line span {
   display: block;
   width: 0;
   height: 100%;
   background: var(--brass);
-  animation: loaderProgress 1150ms 120ms cubic-bezier(.2, .7, .2, 1) forwards;
+  animation: loaderLineFill 1260ms 180ms cubic-bezier(.2, .72, .2, 1) forwards;
 }
 
 .loader.is-exiting .loader__content {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: scale(.97);
 }
 
 .loader.is-exiting .loader__panel--top {
@@ -252,24 +292,109 @@ html:not(.js) .loader {
   pointer-events: none;
 }
 
-@keyframes loaderNameIn {
+@keyframes drawDarbuka {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes darbukaRing {
+  0% {
+    opacity: 0;
+    transform: scale(.82);
+  }
+  22% {
+    opacity: .75;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
+  }
+}
+
+@keyframes darbukaFinalRing {
+  0% {
+    opacity: 0;
+    transform: scale(.85);
+  }
+  18% {
+    opacity: .88;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+
+@keyframes darbukaHit {
+  0%,
+  7%,
+  29%,
+  39%,
+  59%,
+  69%,
+  100% {
+    opacity: 0;
+    transform: scale(.5);
+  }
+  12%,
+  34%,
+  64% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+  18%,
+  42%,
+  74% {
+    opacity: 0;
+    transform: scale(2.1);
+  }
+}
+
+@keyframes darbukaBodyBeat {
+  0%,
+  8%,
+  30%,
+  40%,
+  60%,
+  70%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+  13%,
+  35%,
+  65% {
+    transform: translateY(1.5px) scaleY(.992);
+  }
+}
+
+@keyframes darbukaGlow {
+  0%,
+  8%,
+  30%,
+  40%,
+  60%,
+  70%,
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(.65);
+  }
+  13%,
+  35%,
+  65% {
+    opacity: .82;
+    transform: translateX(-50%) scale(1.15);
+  }
+}
+
+@keyframes loaderIdentityIn {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes loaderBeat {
-  0%,
-  100% {
-    transform: scaleY(0.65);
-  }
-  42% {
-    transform: scaleY(3.2);
-  }
-}
-
-@keyframes loaderProgress {
+@keyframes loaderLineFill {
   to {
     width: 100%;
   }
@@ -1278,6 +1403,19 @@ body.is-ready .hero__content {
 
 @media (max-width: 720px) {
   .loader__content {
+    width: min(300px, calc(100vw - 40px));
+  }
+
+  .darbuka-loader {
+    width: 126px;
+    height: 184px;
+  }
+
+  .loader__identity strong {
+    font-size: .98rem;
+  }
+
+  .loader__content {
     width: calc(100vw - 40px);
   }
 
@@ -1484,19 +1622,27 @@ body.is-ready .hero__content {
 @media (prefers-reduced-motion: reduce) {
   .loader__content,
   .loader__panel,
-  .loader__name span,
-  .loader__rhythm i,
-  .loader__progress span {
+  .darbuka-loader,
+  .darbuka-loader__glow,
+  .darbuka-loader__line,
+  .darbuka-loader__ring,
+  .darbuka-loader__hit,
+  .loader__identity,
+  .loader__line span {
     animation: none !important;
     transition: none !important;
   }
 
-  .loader__name span {
+  .darbuka-loader__line {
+    stroke-dashoffset: 0;
+  }
+
+  .loader__identity {
     opacity: 1;
     transform: none;
   }
 
-  .loader__progress span {
+  .loader__line span {
     width: 100%;
   }
 

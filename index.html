@@ -30,21 +30,50 @@
     <div class="loader__panel loader__panel--bottom" aria-hidden="true"></div>
 
     <div class="loader__content">
-      <div class="loader__name">
-        <span>DHRUVIT</span>
-        <span>KAKKAD</span>
+      <div class="darbuka-loader" aria-hidden="true">
+        <span class="darbuka-loader__glow"></span>
+
+        <svg
+          class="darbuka-loader__svg"
+          viewBox="0 0 180 260"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="darbukaStroke" x1="30" y1="24" x2="150" y2="236" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#F1EEE8" stop-opacity=".78"/>
+              <stop offset=".56" stop-color="#B98A58"/>
+              <stop offset="1" stop-color="#F1EEE8" stop-opacity=".38"/>
+            </linearGradient>
+          </defs>
+
+          <ellipse class="darbuka-loader__line darbuka-loader__head" cx="90" cy="47" rx="55" ry="19"/>
+          <path
+            class="darbuka-loader__line darbuka-loader__body"
+            d="M35 47C38 75 50 93 59 116C67 137 64 161 52 201C47 219 56 230 90 234C124 230 133 219 128 201C116 161 113 137 121 116C130 93 142 75 145 47"
+          />
+          <path
+            class="darbuka-loader__line darbuka-loader__waist"
+            d="M58 116C70 123 110 123 122 116"
+          />
+          <path
+            class="darbuka-loader__line darbuka-loader__base"
+            d="M52 202C68 211 112 211 128 202"
+          />
+
+          <ellipse class="darbuka-loader__ring darbuka-loader__ring--one" cx="90" cy="47" rx="56" ry="20"/>
+          <ellipse class="darbuka-loader__ring darbuka-loader__ring--two" cx="90" cy="47" rx="56" ry="20"/>
+          <ellipse class="darbuka-loader__ring darbuka-loader__ring--three" cx="90" cy="47" rx="56" ry="20"/>
+          <circle class="darbuka-loader__hit" cx="90" cy="47" r="4"/>
+        </svg>
       </div>
 
-      <div class="loader__rhythm" aria-hidden="true">
-        <i></i><i></i><i></i><i></i><i></i>
+      <div class="loader__identity">
+        <strong>DHRUVIT KAKKAD</strong>
+        <span>LIVE DRUMS &amp; MUSIC</span>
       </div>
 
-      <div class="loader__meta">
-        <span>LIVE DRUMS</span>
-        <span>SHOWS &amp; EVENTS</span>
-      </div>
-
-      <div class="loader__progress" aria-hidden="true">
+      <div class="loader__line" aria-hidden="true">
         <span></span>
       </div>
     </div>
