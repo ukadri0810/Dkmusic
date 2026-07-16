@@ -2,128 +2,435 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#070707" />
-  <meta name="description" content="Dhruvit Kakkad — live percussionist for weddings, events and artist collaborations." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#08090b" />
+  <meta
+    name="description"
+    content="Dhruvit Kakkad — live percussion for weddings, private celebrations, corporate events and artist collaborations."
+  />
   <title>Dhruvit Kakkad — Live Percussion</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="grain" aria-hidden="true"></div>
 
   <div class="loader" id="loader" aria-hidden="true">
-    <div class="loader__meta"><span>DHRUVIT KAKKAD</span><span>LIVE PERCUSSION</span></div>
-    <div class="loader__center">
-      <strong id="beatCount">01</strong>
-      <div class="loader__line"><i></i></div>
-      <div class="loader__copy"><span>SOUND</span><span>CHECK</span></div>
+    <div class="loader__brand">
+      <strong>DHRUVIT KAKKAD</strong>
+      <span></span>
+      <small>LIVE PERCUSSION</small>
     </div>
-    <div class="loader__foot"><span>NO AUDIO. JUST THE FIRST BEAT.</span><span>PORTFOLIO DEMO</span></div>
-    <div class="curtain curtain--left"></div><div class="curtain curtain--right"></div>
   </div>
 
   <header class="header" id="header">
-    <a class="wordmark" href="#top"><span>DHRUVIT</span><span>KAKKAD</span></a>
-    <nav class="nav"><a href="#about">Artist</a><a href="#work">Performances</a><a href="#formats">Formats</a><a href="#contact">Enquire</a></nav>
-    <button class="header__cta js-enquire" type="button">Check a date ↗</button>
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu"><span></span><span></span></button>
+    <a class="wordmark" href="#home" aria-label="Dhruvit Kakkad home">
+      <strong>DHRUVIT KAKKAD</strong>
+      <small>LIVE PERCUSSION</small>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#performances">Performances</a>
+      <a href="#booking">Booking</a>
+    </nav>
+
+    <button class="header-cta js-open-enquiry" type="button">
+      Check availability
+    </button>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-controls="mobileMenu"
+      aria-expanded="false"
+      aria-label="Open menu"
+    >
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <small>LIVE PERCUSSION / EVENTS / COLLABORATIONS</small>
-    <nav><a href="#about">Artist</a><a href="#work">Performances</a><a href="#formats">Formats</a><button class="js-enquire" type="button">Check a date ↗</button></nav>
+    <nav aria-label="Mobile navigation">
+      <a href="#about">About</a>
+      <a href="#performances">Performances</a>
+      <a href="#booking">Booking</a>
+      <button class="js-open-enquiry" type="button">Check availability</button>
+    </nav>
   </aside>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero__image hero__image--main"><img src="assets/hero-main.jpg" alt=""></div>
-      <div class="hero__image hero__image--side"><img src="assets/hero-side.jpg" alt=""></div>
-      <div class="hero__overlay"></div>
-      <div class="shell hero__content">
-        <div class="index reveal"><span>01</span><span>LIVE PERFORMANCE PORTFOLIO</span></div>
-        <h1 class="reveal">LIVE PERCUSSION<span>FOR ROOMS THAT</span><em>DON’T STAY STILL.</em></h1>
-        <div class="hero__bottom reveal">
-          <p>Dhruvit Kakkad brings drums, darbuka and live collaboration into weddings, private celebrations and artist-led stages.</p>
-          <div><a class="button button--solid" href="#work">See performances</a><button class="button button--line js-enquire" type="button">Book a performance</button></div>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero__media" aria-hidden="true">
+        <img src="assets/hero.jpg" alt="" />
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__content shell">
+        <p class="hero__eyebrow reveal">DHRUVIT KAKKAD · LIVE PERCUSSION</p>
+
+        <h1 class="reveal">
+          LIVE PERCUSSION
+          <span>THAT MOVES</span>
+          <em>THE ROOM.</em>
+        </h1>
+
+        <p class="hero__copy reveal">
+          Weddings · Live shows · Private celebrations · Artist collaborations
+        </p>
+
+        <div class="hero__actions reveal">
+          <a class="button button--solid" href="#performances">View performances</a>
+          <button class="button button--outline js-open-enquiry" type="button">
+            Check availability
+          </button>
+        </div>
+
+        <div class="hero__footer reveal">
+          <span>DRUMS</span>
+          <i></i>
+          <span>DARBUKA</span>
+          <i></i>
+          <span>LIVE FUSION</span>
         </div>
       </div>
     </section>
 
-    <section class="section artist" id="about">
-      <div class="shell artist__grid">
-        <div class="label reveal"><span>02</span><span>THE ARTIST</span></div>
-        <div class="artist__copy">
-          <h2 class="statement reveal">A LIVE PERFORMER WHO READS THE ROOM,<span>NOT JUST THE SETLIST.</span></h2>
-          <p class="reveal">Dhruvit performs live percussion across celebrations, concerts and collaborative music experiences. His sets move between drums, darbuka and improvised moments shaped by the energy in front of him.</p>
-          <div class="tags reveal"><span>DRUMS</span><span>DARBUKA</span><span>LIVE FUSION</span><span>DESTINATION EVENTS</span></div>
-          <a class="inline-link reveal" href="https://www.instagram.com/dhruvitkakkadmusic" target="_blank" rel="noopener">Instagram profile ↗</a>
-        </div>
-        <figure class="portrait reveal"><img src="assets/portrait.jpg" alt="Dhruvit Kakkad at an event"><figcaption><span>ON STAGE / OFF SCRIPT</span><span>DK MUSIC</span></figcaption></figure>
-      </div>
-    </section>
+    <section class="about section" id="about">
+      <div class="shell about__grid">
+        <div class="about__copy">
+          <p class="section-kicker reveal">ABOUT</p>
 
-    <section class="section work" id="work">
-      <div class="shell">
-        <div class="work__head">
-          <div class="label reveal"><span>03</span><span>SELECTED MOMENTS</span></div>
-          <h2 class="title reveal">FOUR PERFORMANCES.<span>NO EMBEDS. NO INTERRUPTIONS.</span></h2>
-          <p class="reveal">Until original videos are available, the website uses poster frames with direct links to each Instagram performance.</p>
-        </div>
+          <h2 class="section-title reveal">
+            A live performer who reads the room,
+            <span>not only the setlist.</span>
+          </h2>
 
-        <div class="posters">
-          <a class="poster poster--tall reveal" href="https://www.instagram.com/reel/DZPwRo3MtE3/?igsh=MW1sN29kbzhydTNmeA==" target="_blank" rel="noopener"><img src="assets/poster-01.jpg" alt="Live percussion performance"><span class="poster__num">01</span><div class="poster__text"><small>LIVE SET / INSTAGRAM</small><h3>THE CROWD<br>SETS THE TEMPO.</h3></div><b>WATCH ON INSTAGRAM ↗</b></a>
-          <a class="poster reveal" href="https://www.instagram.com/reel/DXbxfwyjDb7/?igsh=MWQ5ZDdwMWRkdTRmdQ==" target="_blank" rel="noopener"><img src="assets/poster-02.jpg" alt="Stage performance"><span class="poster__num">02</span><div class="poster__text"><small>STAGE ENERGY / INSTAGRAM</small><h3>PLAYED LIVE.<br>FELT IMMEDIATELY.</h3></div><b>OPEN REEL ↗</b></a>
-          <a class="poster reveal" href="https://www.instagram.com/p/DU-W9TSDIQc/?igsh=MWNhNmkydDAzc2RoNA==" target="_blank" rel="noopener"><img src="assets/poster-03.jpg" alt="Percussion moment"><span class="poster__num">03</span><div class="poster__text"><small>PERFORMANCE MOMENT</small><h3>BEHIND EVERY<br>BIG MOMENT.</h3></div><b>VIEW POST ↗</b></a>
-          <a class="poster poster--wide reveal" href="https://www.instagram.com/reel/DWgqSxwDK9Q/?igsh=MzdrdjY1d3lsOHJ2" target="_blank" rel="noopener"><img src="assets/poster-04.jpg" alt="Drum performance"><span class="poster__num">04</span><div class="poster__text"><small>COLLABORATION / INSTAGRAM</small><h3>THE BEAT<br>BETWEEN ARTISTS.</h3></div><b>WATCH ON INSTAGRAM ↗</b></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section formats" id="formats">
-      <div class="shell formats__grid">
-        <div class="format-image reveal"><img id="formatImage" src="assets/texture-darbuka.jpg" alt="Percussion performance"><span id="formatNumber">01 / PERFORMANCE FORMAT</span></div>
-        <div>
-          <div class="label reveal"><span>04</span><span>HOW THE SHOW CAN TAKE SHAPE</span></div>
-          <h2 class="title reveal">BUILT AROUND<span>THE EVENT.</span></h2>
-          <div class="format-list reveal">
-            <button class="format-option is-active" data-image="assets/texture-darbuka.jpg" data-number="01"><span>01</span><div><strong>SOLO PERCUSSION</strong><small>Entries, intimate moments and DJ-led sets.</small></div></button>
-            <button class="format-option" data-image="assets/poster-02.jpg" data-number="02"><span>02</span><div><strong>DJ / ARTIST COLLABORATION</strong><small>Live percussion shaped around an existing act.</small></div></button>
-            <button class="format-option" data-image="assets/poster-04.jpg" data-number="03"><span>03</span><div><strong>CUSTOM EVENT SETUP</strong><small>Planned around the room, audience and flow.</small></div></button>
+          <div class="about__body reveal">
+            <p>
+              Dhruvit Kakkad is a live percussionist performing at weddings,
+              private celebrations, concerts and artist collaborations.
+            </p>
+            <p>
+              His sets combine drums, darbuka and live improvisation shaped
+              around the energy of the audience.
+            </p>
           </div>
-          <button class="inline-link inline-link--button js-enquire reveal" type="button">Discuss the right format ↗</button>
+
+          <div class="about__skills reveal" aria-label="Performance skills">
+            <span>DRUMS</span>
+            <span>DARBUKA</span>
+            <span>LIVE FUSION</span>
+          </div>
+
+          <a
+            class="text-link reveal"
+            href="https://www.instagram.com/dhruvitkakkadmusic"
+            target="_blank"
+            rel="noopener"
+          >
+            Instagram profile <span>↗</span>
+          </a>
+        </div>
+
+        <figure class="about__portrait reveal">
+          <img src="assets/portrait.jpg" alt="Dhruvit Kakkad at a live event" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="performances section" id="performances">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker reveal">SELECTED PERFORMANCES</p>
+            <h2 class="section-title reveal">
+              Moments that
+              <span>felt bigger live.</span>
+            </h2>
+          </div>
+
+          <p class="section-intro reveal">
+            Until original video files are available, each poster opens the
+            corresponding Instagram performance.
+          </p>
+        </div>
+
+        <div class="performance-grid">
+          <a
+            class="performance performance--featured reveal"
+            href="https://www.instagram.com/reel/DZPwRo3MtE3/?igsh=MW1sN29kbzhydTNmeA=="
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="assets/performance-01.jpg" alt="Live percussion performance in front of an audience" />
+            <span class="performance__shade"></span>
+            <span class="performance__number">01</span>
+            <div class="performance__copy">
+              <small>LIVE PERFORMANCE</small>
+              <h3>THE CROWD SETS THE TEMPO.</h3>
+              <span>View on Instagram ↗</span>
+            </div>
+          </a>
+
+          <a
+            class="performance reveal"
+            href="https://www.instagram.com/reel/DXbxfwyjDb7/?igsh=MWQ5ZDdwMWRkdTRmdQ=="
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="assets/performance-02.jpg" alt="Dhruvit performing drums under stage lighting" />
+            <span class="performance__shade"></span>
+            <span class="performance__number">02</span>
+            <div class="performance__copy">
+              <small>STAGE SESSION</small>
+              <h3>PLAYED LIVE. FELT IMMEDIATELY.</h3>
+              <span>Open reel ↗</span>
+            </div>
+          </a>
+
+          <a
+            class="performance reveal"
+            href="https://www.instagram.com/reel/DWgqSxwDK9Q/?igsh=MzdrdjY1d3lsOHJ2"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="assets/performance-03.jpg" alt="Percussion collaboration at a live event" />
+            <span class="performance__shade"></span>
+            <span class="performance__number">03</span>
+            <div class="performance__copy">
+              <small>COLLABORATION</small>
+              <h3>THE BEAT BETWEEN ARTISTS.</h3>
+              <span>Watch on Instagram ↗</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="section contact" id="contact">
-      <img src="assets/hero-side.jpg" alt="" class="contact__bg"><div class="contact__shade"></div>
-      <div class="shell contact__content"><div class="label reveal"><span>05</span><span>CHECK AVAILABILITY</span></div><h2 class="reveal">BRING THE<span>ROOM TO LIFE.</span></h2><p class="reveal">Share the date, city and event type. The demo prepares a structured WhatsApp enquiry without a long form.</p><button class="button button--solid js-enquire reveal" type="button">Start an enquiry</button></div>
+    <section class="booking section" id="booking">
+      <div class="shell booking__grid">
+        <div>
+          <p class="section-kicker reveal">AVAILABLE FOR</p>
+          <h2 class="section-title reveal">
+            Built around
+            <span>your event.</span>
+          </h2>
+        </div>
+
+        <div class="booking__content">
+          <ul class="booking-list reveal">
+            <li><span>01</span>Weddings and Sangeet</li>
+            <li><span>02</span>Private Celebrations</li>
+            <li><span>03</span>Corporate Events</li>
+            <li><span>04</span>Live Artist Collaborations</li>
+            <li><span>05</span>Destination Events</li>
+          </ul>
+
+          <div class="booking__note reveal">
+            <p>
+              The format can be adapted around the event, stage setup and
+              artists involved.
+            </p>
+            <button class="button button--outline js-open-enquiry" type="button">
+              Discuss your event
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="shell final-cta__content">
+        <p class="section-kicker reveal">PLANNING AN EVENT?</p>
+        <h2 class="reveal">
+          LET’S BRING
+          <span>THE ROOM TO LIFE.</span>
+        </h2>
+        <button class="button button--solid js-open-enquiry reveal" type="button">
+          Check availability
+        </button>
+      </div>
     </section>
   </main>
 
-  <footer class="footer"><div class="shell footer__inner"><div class="wordmark"><span>DHRUVIT</span><span>KAKKAD</span></div><div><span>LIVE PERCUSSION / EVENTS / COLLABORATIONS</span><span>PORTFOLIO DEMO</span></div><nav><a href="https://www.instagram.com/dhruvitkakkadmusic" target="_blank" rel="noopener">Instagram ↗</a><button class="js-enquire" type="button">Enquire ↗</button><a href="#top">Top ↑</a></nav></div></footer>
+  <footer class="footer">
+    <div class="shell footer__inner">
+      <div class="wordmark wordmark--footer">
+        <strong>DHRUVIT KAKKAD</strong>
+        <small>LIVE PERCUSSION</small>
+      </div>
 
-  <button class="mobile-cta js-enquire" type="button">Check a date <span>↗</span></button>
+      <div class="footer__links">
+        <a
+          href="https://www.instagram.com/dhruvitkakkadmusic"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram ↗
+        </a>
+        <button class="js-open-enquiry" type="button">Enquire ↗</button>
+        <a href="#home">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="mobile-cta js-open-enquiry" type="button">
+    Check availability <span>↗</span>
+  </button>
 
   <div class="enquiry" id="enquiry" aria-hidden="true">
-    <button class="enquiry__backdrop" data-close type="button" aria-label="Close"></button>
-    <section class="enquiry__panel" role="dialog" aria-modal="true" aria-labelledby="enquiryTitle">
-      <div class="enquiry__top"><div><span>QUICK ENQUIRY</span><strong id="stepCounter">01 / 04</strong></div><button data-close type="button" aria-label="Close">×</button></div>
-      <div class="progress"><i id="progressBar"></i></div>
+    <button
+      class="enquiry__backdrop"
+      data-close-enquiry
+      type="button"
+      aria-label="Close enquiry form"
+    ></button>
+
+    <section
+      class="enquiry__panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="enquiryTitle"
+    >
+      <div class="enquiry__header">
+        <div>
+          <span>QUICK ENQUIRY</span>
+          <strong id="stepCounter">01 / 04</strong>
+        </div>
+
+        <button
+          class="enquiry__close"
+          data-close-enquiry
+          type="button"
+          aria-label="Close"
+        >
+          ×
+        </button>
+      </div>
+
+      <div class="enquiry__progress">
+        <span id="progressBar"></span>
+      </div>
+
       <form id="enquiryForm" novalidate>
-        <div class="step is-active" data-step="0"><p>FIRST, THE OCCASION.</p><h2 id="enquiryTitle">WHAT ARE YOU PLANNING?</h2><div class="choices"><label><input type="radio" name="eventType" value="Wedding" required><span>WEDDING</span></label><label><input type="radio" name="eventType" value="Sangeet / Reception"><span>SANGEET / RECEPTION</span></label><label><input type="radio" name="eventType" value="Corporate event"><span>CORPORATE EVENT</span></label><label><input type="radio" name="eventType" value="Private celebration"><span>PRIVATE CELEBRATION</span></label><label><input type="radio" name="eventType" value="Concert / Live show"><span>CONCERT / LIVE SHOW</span></label><label><input type="radio" name="eventType" value="Other"><span>OTHER</span></label></div></div>
-        <div class="step" data-step="1"><p>DATE AND PLACE.</p><h2>WHEN IS THE ROOM COMING ALIVE?</h2><div class="fields"><label><span>EVENT DATE</span><input type="date" name="eventDate" required></label><label><span>CITY</span><input type="text" name="city" placeholder="Mumbai" required></label></div></div>
-        <div class="step" data-step="2"><p>THE PERFORMANCE.</p><h2>WHAT KIND OF SET ARE YOU LOOKING FOR?</h2><div class="choices choices--stack"><label><input type="radio" name="format" value="Solo percussion" required><span>SOLO PERCUSSION</span></label><label><input type="radio" name="format" value="DJ / artist collaboration"><span>DJ / ARTIST COLLABORATION</span></label><label><input type="radio" name="format" value="Custom event setup"><span>CUSTOM EVENT SETUP</span></label><label><input type="radio" name="format" value="Not sure yet"><span>NOT SURE — RECOMMEND ONE</span></label></div></div>
-        <div class="step" data-step="3"><p>LAST STEP.</p><h2>WHERE SHOULD DHRUVIT REPLY?</h2><div class="fields"><label><span>YOUR NAME</span><input type="text" name="name" required></label><label><span>WHATSAPP NUMBER</span><input type="tel" name="phone" placeholder="+91" required></label><label class="full"><span>NOTE (OPTIONAL)</span><textarea name="note" rows="3" placeholder="Venue, guests or a performance idea"></textarea></label></div></div>
-        <div class="error" id="formError"></div>
-        <div class="form-actions"><button class="button button--line" id="backBtn" type="button">Back</button><button class="button button--solid" id="nextBtn" type="button">Continue</button><button class="button button--solid" id="submitBtn" type="submit">Prepare WhatsApp</button></div>
+        <div class="step is-active" data-step="0">
+          <p>THE OCCASION</p>
+          <h2 id="enquiryTitle">WHAT ARE YOU PLANNING?</h2>
+
+          <div class="options">
+            <label><input type="radio" name="eventType" value="Wedding" required /><span>WEDDING</span></label>
+            <label><input type="radio" name="eventType" value="Sangeet / Reception" /><span>SANGEET / RECEPTION</span></label>
+            <label><input type="radio" name="eventType" value="Corporate event" /><span>CORPORATE EVENT</span></label>
+            <label><input type="radio" name="eventType" value="Private celebration" /><span>PRIVATE CELEBRATION</span></label>
+            <label><input type="radio" name="eventType" value="Concert / Live show" /><span>CONCERT / LIVE SHOW</span></label>
+            <label><input type="radio" name="eventType" value="Other" /><span>OTHER</span></label>
+          </div>
+        </div>
+
+        <div class="step" data-step="1">
+          <p>DATE AND CITY</p>
+          <h2>WHEN IS THE EVENT?</h2>
+
+          <div class="fields">
+            <label>
+              <span>EVENT DATE</span>
+              <input type="date" name="eventDate" required />
+            </label>
+
+            <label>
+              <span>CITY</span>
+              <input type="text" name="city" placeholder="Mumbai" required />
+            </label>
+          </div>
+        </div>
+
+        <div class="step" data-step="2">
+          <p>THE PERFORMANCE</p>
+          <h2>WHAT KIND OF SET DO YOU NEED?</h2>
+
+          <div class="options options--stack">
+            <label><input type="radio" name="format" value="Solo percussion" required /><span>SOLO PERCUSSION</span></label>
+            <label><input type="radio" name="format" value="DJ / artist collaboration" /><span>DJ / ARTIST COLLABORATION</span></label>
+            <label><input type="radio" name="format" value="Custom event setup" /><span>CUSTOM EVENT SETUP</span></label>
+            <label><input type="radio" name="format" value="Not sure yet" /><span>NOT SURE — RECOMMEND ONE</span></label>
+          </div>
+        </div>
+
+        <div class="step" data-step="3">
+          <p>CONTACT DETAILS</p>
+          <h2>WHERE SHOULD DHRUVIT REPLY?</h2>
+
+          <div class="fields">
+            <label>
+              <span>YOUR NAME</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+
+            <label>
+              <span>WHATSAPP NUMBER</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="+91" required />
+            </label>
+
+            <label class="field-full">
+              <span>MESSAGE <small>(OPTIONAL)</small></span>
+              <textarea
+                name="note"
+                rows="3"
+                placeholder="Venue, guest count or a special performance idea"
+              ></textarea>
+            </label>
+          </div>
+        </div>
+
+        <p class="form-error" id="formError" role="alert"></p>
+
+        <div class="enquiry__actions">
+          <button class="button button--outline" id="backButton" type="button">
+            Back
+          </button>
+
+          <button class="button button--solid" id="nextButton" type="button">
+            Continue
+          </button>
+
+          <button class="button button--solid" id="submitButton" type="submit">
+            Prepare WhatsApp
+          </button>
+        </div>
       </form>
-      <div class="success" id="success" hidden><span>✓</span><p>ENQUIRY READY.</p><h2>THE DETAILS ARE PREPARED.</h2><p>Replace the demo WhatsApp number in <strong>script.js</strong> before final delivery.</p><a class="button button--solid" id="whatsappLink" href="#" target="_blank" rel="noopener">Continue on WhatsApp</a></div>
+
+      <div class="success" id="success" hidden>
+        <span class="success__mark">✓</span>
+        <p>ENQUIRY READY</p>
+        <h2>YOUR DETAILS ARE PREPARED.</h2>
+        <p class="success__copy">
+          Replace the demo WhatsApp number inside <strong>script.js</strong>
+          before presenting the final website.
+        </p>
+        <a
+          class="button button--solid"
+          id="whatsappLink"
+          href="#"
+          target="_blank"
+          rel="noopener"
+        >
+          Continue on WhatsApp
+        </a>
+      </div>
     </section>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
