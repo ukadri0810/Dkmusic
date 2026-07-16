@@ -118,7 +118,7 @@ img {
   z-index: 3000;
   overflow: hidden;
   pointer-events: auto;
-  background: transparent;
+  background: #050608;
 }
 
 html:not(.js) .loader {
@@ -129,10 +129,10 @@ html:not(.js) .loader {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 78% 48%, rgba(255,255,255,.025), transparent 24%),
+    radial-gradient(circle at 76% 46%, rgba(255, 255, 255, 0.035), transparent 28%),
     #050608;
   transition:
-    opacity 420ms ease,
+    opacity 440ms ease,
     transform 820ms cubic-bezier(.78, 0, .2, 1);
 }
 
@@ -140,18 +140,22 @@ html:not(.js) .loader {
   position: absolute;
   left: clamp(26px, 7vw, 110px);
   top: 50%;
-  z-index: 4;
+  z-index: 5;
   width: min(410px, 38vw);
   transform: translateY(-50%);
+  transition:
+    opacity 260ms ease,
+    transform 380ms cubic-bezier(.2, .7, .2, 1);
 }
 
 .loader__small,
 .loader__status {
   display: block;
-  color: rgba(241, 238, 232, .48);
+  color: rgba(241, 238, 232, .5);
   font-size: .54rem;
   font-weight: 600;
   letter-spacing: .19em;
+  opacity: 0;
 }
 
 .loader__copy strong {
@@ -167,13 +171,11 @@ html:not(.js) .loader {
 .loader__copy strong span {
   display: block;
   opacity: 0;
-  transform: translateY(22px);
-  animation: loaderTitleIn 620ms cubic-bezier(.2, .72, .2, 1) forwards;
+  transform: translateY(24px);
 }
 
 .loader__copy strong span:nth-child(2) {
   color: var(--brass);
-  animation-delay: 90ms;
 }
 
 .loader__line {
@@ -182,27 +184,41 @@ html:not(.js) .loader {
   height: 1px;
   margin-bottom: 13px;
   background: var(--brass);
-  animation: loaderEditorialLine 820ms 180ms cubic-bezier(.2, .72, .2, 1) forwards;
 }
 
-.loader__small,
-.loader__status {
-  opacity: 0;
-  animation: loaderMetaIn 440ms 280ms ease forwards;
+.loader.is-playing .loader__copy strong span {
+  animation: loaderTitleIn 620ms cubic-bezier(.2, .72, .2, 1) forwards;
 }
 
-.loader__status {
-  animation-delay: 920ms;
+.loader.is-playing .loader__copy strong span:nth-child(2) {
+  animation-delay: 90ms;
 }
+
+.loader.is-playing .loader__line {
+  animation: loaderEditorialLine 920ms 180ms cubic-bezier(.2, .72, .2, 1) forwards;
+}
+
+.loader.is-playing .loader__small {
+  animation: loaderMetaIn 440ms 260ms ease forwards;
+}
+
+.loader.is-playing .loader__status {
+  animation: loaderMetaIn 440ms 1160ms ease forwards;
+}
+
+/* Macro drumhead */
 
 .drumhead-loader {
   position: absolute;
-  right: clamp(-250px, -12vw, -90px);
+  right: clamp(-150px, -8vw, -70px);
   top: 50%;
   z-index: 3;
-  width: clamp(500px, 62vw, 900px);
+  width: clamp(520px, 60vw, 860px);
   aspect-ratio: 1;
   transform: translateY(-50%);
+  transition:
+    opacity 300ms ease,
+    transform 540ms cubic-bezier(.2, .72, .2, 1);
 }
 
 .drumhead-loader__shadow,
@@ -218,68 +234,77 @@ html:not(.js) .loader {
 
 .drumhead-loader__shadow {
   inset: 7%;
-  background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, .72);
   filter: blur(34px);
   transform: translate(2.5%, 3.5%);
 }
 
 .drumhead-loader__surface {
   inset: 9%;
-  border: 1px solid rgba(241, 238, 232, .08);
+  border: 1px solid rgba(241, 238, 232, .1);
   background:
-    radial-gradient(circle at 36% 32%, rgba(255,255,255,.075), transparent 18%),
-    radial-gradient(circle at 54% 46%, rgba(255,255,255,.025), transparent 42%),
-    linear-gradient(145deg, #17191d 0%, #101216 48%, #090a0c 100%);
+    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .1), transparent 17%),
+    radial-gradient(circle at 53% 47%, rgba(255, 255, 255, .03), transparent 42%),
+    linear-gradient(145deg, #1a1c20 0%, #111319 48%, #090a0d 100%);
   box-shadow:
-    inset 0 0 70px rgba(0,0,0,.62),
-    0 36px 90px rgba(0,0,0,.42);
+    inset 0 0 74px rgba(0, 0, 0, .64),
+    0 36px 90px rgba(0, 0, 0, .42);
   opacity: 0;
-  transform: scale(.985);
-  animation: drumSurfaceIn 760ms 120ms cubic-bezier(.2, .72, .2, 1) forwards;
+  transform: scale(.975);
 }
 
 .drumhead-loader__inner {
   inset: 14%;
-  border: 1px solid rgba(241, 238, 232, .05);
-  box-shadow: inset 0 0 30px rgba(255,255,255,.012);
+  border: 1px solid rgba(241, 238, 232, .06);
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, .015);
 }
 
 .drumhead-loader__rim {
   inset: 7%;
-  border: clamp(7px, .7vw, 11px) solid #7d7f82;
+  border: clamp(7px, .72vw, 11px) solid #8b8d90;
   box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.18),
-    inset 0 0 18px rgba(255,255,255,.08),
-    0 0 0 1px rgba(0,0,0,.8),
-    0 14px 50px rgba(0,0,0,.45);
+    inset 0 0 0 1px rgba(255, 255, 255, .24),
+    inset 0 0 18px rgba(255, 255, 255, .1),
+    0 0 0 1px rgba(0, 0, 0, .82),
+    0 14px 50px rgba(0, 0, 0, .45);
   opacity: 0;
-  transform: scale(.99);
-  animation: drumRimIn 700ms 170ms ease forwards;
+  transform: scale(.985);
 }
 
 .drumhead-loader__rim::before {
   position: absolute;
   inset: -5px;
   border-radius: 50%;
-  border-top: 2px solid rgba(241, 238, 232, .45);
-  border-left: 1px solid rgba(241, 238, 232, .12);
+  border-top: 2px solid rgba(241, 238, 232, .55);
+  border-left: 1px solid rgba(241, 238, 232, .14);
   content: "";
   transform: rotate(-18deg);
 }
+
+.loader.is-playing .drumhead-loader__surface {
+  animation:
+    drumSurfaceIn 720ms 100ms cubic-bezier(.2, .72, .2, 1) forwards,
+    drumSkinPress 380ms 1350ms ease-out both;
+}
+
+.loader.is-playing .drumhead-loader__rim {
+  animation: drumRimIn 680ms 150ms ease forwards;
+}
+
+/* Drum hardware */
 
 .drumhead-loader__lug {
   position: absolute;
   z-index: 3;
   width: 22px;
   height: 48px;
-  border: 1px solid rgba(241, 238, 232, .34);
+  border: 1px solid rgba(241, 238, 232, .4);
   border-radius: 4px;
-  background: linear-gradient(90deg, #4b4d50, #9a9b9c 46%, #444649);
+  background: linear-gradient(90deg, #4d4f52, #a4a5a6 46%, #444649);
   box-shadow:
-    inset 0 0 6px rgba(255,255,255,.18),
-    0 6px 16px rgba(0,0,0,.45);
+    inset 0 0 6px rgba(255, 255, 255, .2),
+    0 6px 16px rgba(0, 0, 0, .45);
   opacity: 0;
-  animation: drumLugIn 360ms 520ms ease forwards;
 }
 
 .drumhead-loader__lug::before {
@@ -289,7 +314,7 @@ html:not(.js) .loader {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: rgba(241, 238, 232, .55);
+  background: rgba(241, 238, 232, .62);
   content: "";
   transform: translateX(-50%);
 }
@@ -304,109 +329,143 @@ html:not(.js) .loader {
   left: 7%;
   top: 46%;
   transform: rotate(-86deg);
-  animation-delay: 560ms;
 }
 
 .drumhead-loader__lug--3 {
   left: 17%;
   bottom: 16%;
   transform: rotate(-136deg);
-  animation-delay: 600ms;
 }
 
 .drumhead-loader__lug--4 {
   right: 17%;
   bottom: 16%;
   transform: rotate(136deg);
-  animation-delay: 640ms;
 }
 
 .drumhead-loader__lug--5 {
   right: 7%;
   top: 46%;
   transform: rotate(86deg);
-  animation-delay: 680ms;
 }
+
+.loader.is-playing .drumhead-loader__lug {
+  animation: drumLugIn 340ms 500ms ease forwards;
+}
+
+.loader.is-playing .drumhead-loader__lug--2 {
+  animation-delay: 540ms;
+}
+
+.loader.is-playing .drumhead-loader__lug--3 {
+  animation-delay: 580ms;
+}
+
+.loader.is-playing .drumhead-loader__lug--4 {
+  animation-delay: 620ms;
+}
+
+.loader.is-playing .drumhead-loader__lug--5 {
+  animation-delay: 660ms;
+}
+
+/* The stick is deliberately placed over the visible half of the drum. */
 
 .drumhead-loader__stick {
   position: absolute;
-  z-index: 5;
-  right: 14%;
-  top: 4%;
-  width: 8px;
-  height: 48%;
+  left: 35%;
+  top: -3%;
+  z-index: 7;
+  width: 9px;
+  height: 49%;
   border-radius: 999px;
   background:
-    linear-gradient(90deg, #b88d5d 0%, #e2c394 48%, #8c653e 100%);
-  box-shadow: 0 10px 24px rgba(0,0,0,.34);
+    linear-gradient(90deg, #9b7046 0%, #e1c08e 48%, #86603b 100%);
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, .42),
+    0 0 0 1px rgba(255, 255, 255, .06);
   transform-origin: 50% 100%;
-  transform: rotate(38deg) translateY(-22%);
   opacity: 0;
-  animation: drumStickStrike 920ms 480ms cubic-bezier(.2, .76, .2, 1) both;
+  transform: rotate(-28deg) translateY(-34%);
 }
 
 .drumhead-loader__stick::after {
   position: absolute;
   left: 50%;
-  bottom: -10px;
-  width: 14px;
-  height: 18px;
+  bottom: -11px;
+  width: 15px;
+  height: 19px;
   border-radius: 50%;
-  background: #caa677;
-  box-shadow: inset 0 0 4px rgba(255,255,255,.16);
+  background: #caa576;
+  box-shadow: inset 0 0 4px rgba(255, 255, 255, .2);
   content: "";
   transform: translateX(-50%);
 }
 
+.loader.is-playing .drumhead-loader__stick {
+  animation: drumStickStrike 840ms 760ms cubic-bezier(.2, .76, .2, 1) both;
+}
+
+/* Impact and vibration */
+
 .drumhead-loader__impact {
-  left: 47%;
-  top: 45%;
-  z-index: 5;
-  width: 18px;
-  height: 18px;
-  background: rgba(185, 138, 88, .9);
-  filter: blur(1px);
+  left: 45%;
+  top: 44%;
+  z-index: 8;
+  width: 20px;
+  height: 20px;
+  background: rgba(185, 138, 88, .95);
+  box-shadow: 0 0 24px rgba(185, 138, 88, .48);
+  filter: blur(.4px);
   opacity: 0;
-  transform: scale(.4);
-  animation: drumImpact 300ms 970ms ease-out both;
+  transform: scale(.35);
 }
 
 .drumhead-loader__wave {
-  left: 50%;
-  top: 50%;
-  z-index: 4;
-  width: 26%;
+  left: 48%;
+  top: 47%;
+  z-index: 6;
+  width: 24%;
   aspect-ratio: 1;
-  border: 1px solid rgba(185, 138, 88, .7);
+  border: 1px solid rgba(185, 138, 88, .82);
   opacity: 0;
-  transform: translate(-50%, -50%) scale(.35);
-}
-
-.drumhead-loader__wave--one {
-  animation: drumWave 620ms 990ms cubic-bezier(.12, .62, .2, 1) both;
-}
-
-.drumhead-loader__wave--two {
-  animation: drumWave 720ms 1080ms cubic-bezier(.12, .62, .2, 1) both;
+  transform: translate(-50%, -50%) scale(.3);
 }
 
 .drumhead-loader__flash {
-  inset: 18%;
+  inset: 17%;
   background:
-    radial-gradient(circle at 48% 46%, rgba(185, 138, 88, .2), transparent 10%),
-    radial-gradient(circle at 48% 46%, rgba(255,255,255,.07), transparent 34%);
+    radial-gradient(circle at 45% 44%, rgba(185, 138, 88, .28), transparent 11%),
+    radial-gradient(circle at 45% 44%, rgba(255, 255, 255, .09), transparent 34%);
   opacity: 0;
-  animation: drumFlash 360ms 980ms ease-out both;
 }
+
+.loader.is-playing .drumhead-loader__impact {
+  animation: drumImpact 320ms 1350ms ease-out both;
+}
+
+.loader.is-playing .drumhead-loader__wave--one {
+  animation: drumWave 620ms 1360ms cubic-bezier(.12, .62, .2, 1) both;
+}
+
+.loader.is-playing .drumhead-loader__wave--two {
+  animation: drumWave 760ms 1450ms cubic-bezier(.12, .62, .2, 1) both;
+}
+
+.loader.is-playing .drumhead-loader__flash {
+  animation: drumFlash 440ms 1340ms ease-out both;
+}
+
+/* Final reveal */
 
 .loader__reveal-ring {
   position: absolute;
-  left: 72%;
+  left: 70%;
   top: 50%;
-  z-index: 6;
-  width: 90px;
-  height: 90px;
-  border: 1px solid rgba(185, 138, 88, .65);
+  z-index: 8;
+  width: 94px;
+  height: 94px;
+  border: 1px solid rgba(185, 138, 88, .76);
   border-radius: 50%;
   opacity: 0;
   transform: translate(-50%, -50%) scale(.3);
@@ -415,21 +474,15 @@ html:not(.js) .loader {
 .loader.is-exiting .loader__copy {
   opacity: 0;
   transform: translateY(-50%) translateX(-14px);
-  transition:
-    opacity 240ms ease,
-    transform 360ms ease;
 }
 
 .loader.is-exiting .drumhead-loader {
   opacity: 0;
-  transform: translateY(-50%) scale(1.02);
-  transition:
-    opacity 280ms ease,
-    transform 500ms cubic-bezier(.2, .72, .2, 1);
+  transform: translateY(-50%) scale(1.025);
 }
 
 .loader.is-exiting .loader__reveal-ring {
-  animation: loaderRevealRing 720ms cubic-bezier(.12, .62, .2, 1) forwards;
+  animation: loaderRevealRing 760ms cubic-bezier(.12, .62, .2, 1) forwards;
 }
 
 .loader.is-exiting .loader__veil {
@@ -441,6 +494,8 @@ html:not(.js) .loader {
   visibility: hidden;
   pointer-events: none;
 }
+
+/* Loader keyframes */
 
 @keyframes loaderTitleIn {
   to {
@@ -484,50 +539,60 @@ html:not(.js) .loader {
 @keyframes drumStickStrike {
   0% {
     opacity: 0;
-    transform: rotate(38deg) translateY(-22%);
+    transform: rotate(-28deg) translateY(-34%);
   }
   18% {
     opacity: 1;
   }
-  58% {
+  68% {
     opacity: 1;
-    transform: rotate(18deg) translateY(1%);
+    transform: rotate(9deg) translateY(0);
   }
-  72% {
-    transform: rotate(24deg) translateY(-6%);
+  80% {
+    transform: rotate(3deg) translateY(-7%);
   }
   100% {
-    opacity: .72;
-    transform: rotate(22deg) translateY(-3%);
+    opacity: .78;
+    transform: rotate(5deg) translateY(-4%);
+  }
+}
+
+@keyframes drumSkinPress {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(.992);
   }
 }
 
 @keyframes drumImpact {
   0% {
     opacity: 0;
-    transform: scale(.4);
+    transform: scale(.35);
   }
   34% {
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1.25);
   }
   100% {
     opacity: 0;
-    transform: scale(2.5);
+    transform: scale(2.6);
   }
 }
 
 @keyframes drumWave {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(.35);
+    transform: translate(-50%, -50%) scale(.3);
   }
   18% {
-    opacity: .78;
+    opacity: .88;
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(3.4);
+    transform: translate(-50%, -50%) scale(3.55);
   }
 }
 
@@ -536,7 +601,7 @@ html:not(.js) .loader {
   100% {
     opacity: 0;
   }
-  35% {
+  34% {
     opacity: 1;
   }
 }
@@ -547,11 +612,11 @@ html:not(.js) .loader {
     transform: translate(-50%, -50%) scale(.3);
   }
   16% {
-    opacity: .85;
+    opacity: .92;
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(24);
+    transform: translate(-50%, -50%) scale(25);
   }
 }
 
@@ -1560,7 +1625,7 @@ body.is-ready .hero__content {
   .loader__copy {
     left: 18px;
     top: auto;
-    bottom: 56px;
+    bottom: 48px;
     width: calc(100vw - 36px);
     transform: none;
   }
@@ -1575,39 +1640,20 @@ body.is-ready .hero__content {
   }
 
   .drumhead-loader {
-    right: -46vw;
-    top: 35%;
-    width: 112vw;
+    right: -28vw;
+    top: 34%;
+    width: 106vw;
+  }
+
+  .drumhead-loader__stick {
+    left: 34%;
+    top: -5%;
+    width: 7px;
   }
 
   .loader__reveal-ring {
-    left: 68%;
-    top: 36%;
-  }
-
-  .loader__content {
-    width: min(340px, calc(100vw - 34px));
-  }
-
-  .drum-loader {
-    width: min(330px, 88vw);
-    height: 205px;
-  }
-
-  .loader__identity strong {
-    font-size: .98rem;
-  }
-
-  .loader__content {
-    width: calc(100vw - 40px);
-  }
-
-  .loader__name {
-    font-size: clamp(3.2rem, 18vw, 5.2rem);
-  }
-
-  .loader__meta {
-    font-size: 0.48rem;
+    left: 58%;
+    top: 34%;
   }
 
   :root {
@@ -1803,25 +1849,6 @@ body.is-ready .hero__content {
 
 
 @media (prefers-reduced-motion: reduce) {
-  .loader__veil,
-  .loader__copy,
-  .loader__copy strong span,
-  .loader__small,
-  .loader__status,
-  .loader__line,
-  .drumhead-loader,
-  .drumhead-loader__surface,
-  .drumhead-loader__rim,
-  .drumhead-loader__lug,
-  .drumhead-loader__stick,
-  .drumhead-loader__impact,
-  .drumhead-loader__wave,
-  .drumhead-loader__flash,
-  .loader__reveal-ring {
-    animation: none !important;
-    transition: none !important;
-  }
-
   .loader__copy strong span,
   .loader__small,
   .loader__status,
@@ -1830,21 +1857,27 @@ body.is-ready .hero__content {
   .drumhead-loader__lug {
     opacity: 1;
     transform: none;
+    animation: none !important;
   }
 
   .loader__line {
     width: 100%;
+    animation: none !important;
   }
 
   .drumhead-loader__stick {
-    opacity: .72;
-    transform: rotate(22deg) translateY(-3%);
+    opacity: .76;
+    transform: rotate(5deg) translateY(-4%);
+    animation: none !important;
   }
 
-  .loader.is-exiting {
-    opacity: 0;
+  .drumhead-loader__impact,
+  .drumhead-loader__wave,
+  .drumhead-loader__flash {
+    display: none;
   }
 }
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1860,25 +1893,4 @@ body.is-ready .hero__content {
 }
 
 
-/* Drum loader visibility fix */
-.drum-loader__kit {
-  opacity: 1;
-}
-
-.drum-loader__draw,
-.drum-loader__stick {
-  shape-rendering: geometricPrecision;
-}
-
-.drum-loader__bass {
-  filter:
-    drop-shadow(0 0 8px rgba(185, 138, 88, 0.1))
-    drop-shadow(0 0 2px rgba(241, 238, 232, 0.12));
-}
-
-@media (max-width: 420px) {
-  .drum-loader {
-    width: min(310px, 92vw);
-    height: 192px;
-  }
 }
