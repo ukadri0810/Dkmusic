@@ -132,7 +132,7 @@ html:not(.js) .loader {
   width: 100%;
   height: 50.2%;
   background: #050608;
-  transition: transform 720ms cubic-bezier(.78, 0, .2, 1);
+  transition: transform 740ms cubic-bezier(.78, 0, .2, 1);
 }
 
 .loader__panel--top {
@@ -146,7 +146,7 @@ html:not(.js) .loader {
 .loader__content {
   position: relative;
   z-index: 2;
-  width: min(330px, calc(100vw - 48px));
+  width: min(520px, calc(100vw - 48px));
   display: grid;
   justify-items: center;
   transition:
@@ -154,94 +154,134 @@ html:not(.js) .loader {
     transform 320ms cubic-bezier(.2, .7, .2, 1);
 }
 
-.darbuka-loader {
+.drum-loader {
   position: relative;
-  width: 146px;
-  height: 210px;
+  width: min(420px, 82vw);
+  height: 250px;
   display: grid;
   place-items: center;
-  transform-origin: 50% 22%;
-  animation: darbukaBodyBeat 1080ms 340ms ease-in-out both;
 }
 
-.darbuka-loader__glow {
+.drum-loader__halo {
   position: absolute;
-  top: 19px;
   left: 50%;
-  width: 94px;
-  height: 42px;
+  bottom: 22px;
+  width: 210px;
+  height: 70px;
   border-radius: 50%;
-  background: rgba(185, 138, 88, 0.2);
-  filter: blur(20px);
+  background: rgba(185, 138, 88, 0.13);
+  filter: blur(28px);
   opacity: 0;
-  transform: translateX(-50%) scale(.65);
-  animation: darbukaGlow 1080ms 340ms ease-in-out both;
+  transform: translateX(-50%) scale(.7);
+  animation: drumHalo 1250ms 430ms ease-in-out both;
 }
 
-.darbuka-loader__svg {
+.drum-loader__svg {
   width: 100%;
   height: 100%;
   overflow: visible;
 }
 
-.darbuka-loader__line {
-  stroke: url(#darbukaStroke);
-  stroke-width: 1.7;
+.drum-loader__draw {
+  stroke: url(#drumStroke);
+  stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
-  stroke-dasharray: 560;
-  stroke-dashoffset: 560;
-  animation: drawDarbuka 620ms 90ms cubic-bezier(.2, .72, .2, 1) forwards;
+  stroke-dasharray: 720;
+  stroke-dashoffset: 720;
+  animation: drawDrumKit 720ms 90ms cubic-bezier(.2, .72, .2, 1) forwards;
 }
 
-.darbuka-loader__head {
-  animation-duration: 430ms;
-}
-
-.darbuka-loader__waist,
-.darbuka-loader__base {
-  animation-delay: 280ms;
-  animation-duration: 440ms;
-}
-
-.darbuka-loader__ring {
+.drum-loader__bass-ring {
   fill: none;
-  stroke: var(--brass);
-  stroke-width: 1.25;
+  stroke: rgba(241, 238, 232, 0.16);
+  stroke-width: 1;
   opacity: 0;
+  animation: drumDetailIn 320ms 560ms ease forwards;
+}
+
+.drum-loader__stick {
+  stroke: #f1eee8;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  opacity: 0;
+}
+
+.drum-loader__stick--left {
+  animation: leftStickStrike 980ms 560ms cubic-bezier(.2, .75, .2, 1) both;
+}
+
+.drum-loader__stick--right {
+  animation: rightStickStrike 980ms 560ms cubic-bezier(.2, .75, .2, 1) both;
+}
+
+.drum-loader__cymbal {
   transform-box: fill-box;
   transform-origin: center;
 }
 
-.darbuka-loader__ring--one {
-  animation: darbukaRing 430ms 500ms cubic-bezier(.15, .65, .2, 1) both;
+.drum-loader__cymbal--right {
+  animation: cymbalShimmer 420ms 1180ms ease-out both;
 }
 
-.darbuka-loader__ring--two {
-  animation: darbukaRing 460ms 820ms cubic-bezier(.15, .65, .2, 1) both;
+.drum-loader__snare {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: snareHit 300ms 900ms ease-out both;
 }
 
-.darbuka-loader__ring--three {
-  animation: darbukaFinalRing 620ms 1080ms cubic-bezier(.15, .65, .2, 1) both;
-}
-
-.darbuka-loader__hit {
+.drum-loader__hit {
   fill: var(--brass);
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
-  animation: darbukaHit 1080ms 410ms ease-in-out both;
+}
+
+.drum-loader__hit--one {
+  animation: hitFlash 280ms 760ms ease-out both;
+}
+
+.drum-loader__hit--two {
+  animation: hitFlash 280ms 980ms ease-out both;
+}
+
+.drum-loader__hit--three {
+  animation: hitFlash 300ms 1210ms ease-out both;
+}
+
+.drum-loader__pulse {
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 1.2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.drum-loader__pulse--one {
+  animation: drumPulse 420ms 760ms cubic-bezier(.15, .65, .2, 1) both;
+}
+
+.drum-loader__pulse--two {
+  animation: drumPulse 450ms 1010ms cubic-bezier(.15, .65, .2, 1) both;
+}
+
+.drum-loader__pulse--three {
+  animation: finalDrumPulse 620ms 1240ms cubic-bezier(.15, .65, .2, 1) both;
 }
 
 .loader__identity {
-  margin-top: 9px;
+  margin-top: 3px;
   display: grid;
   justify-items: center;
   gap: 7px;
   opacity: 0;
   transform: translateY(10px);
-  animation: loaderIdentityIn 480ms 600ms cubic-bezier(.2, .72, .2, 1) forwards;
+  animation: loaderIdentityIn 460ms 620ms cubic-bezier(.2, .72, .2, 1) forwards;
 }
 
 .loader__identity strong {
@@ -271,12 +311,12 @@ html:not(.js) .loader {
   width: 0;
   height: 100%;
   background: var(--brass);
-  animation: loaderLineFill 1260ms 180ms cubic-bezier(.2, .72, .2, 1) forwards;
+  animation: loaderLineFill 1380ms 180ms cubic-bezier(.2, .72, .2, 1) forwards;
 }
 
 .loader.is-exiting .loader__content {
   opacity: 0;
-  transform: scale(.97);
+  transform: scale(.985);
 }
 
 .loader.is-exiting .loader__panel--top {
@@ -292,97 +332,141 @@ html:not(.js) .loader {
   pointer-events: none;
 }
 
-@keyframes drawDarbuka {
+@keyframes drawDrumKit {
   to {
     stroke-dashoffset: 0;
   }
 }
 
-@keyframes darbukaRing {
-  0% {
-    opacity: 0;
-    transform: scale(.82);
-  }
-  22% {
-    opacity: .75;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.55);
+@keyframes drumDetailIn {
+  to {
+    opacity: 1;
   }
 }
 
-@keyframes darbukaFinalRing {
+@keyframes leftStickStrike {
   0% {
     opacity: 0;
-    transform: scale(.85);
+    transform: rotate(-16deg) translateY(-12px);
   }
   18% {
-    opacity: .88;
+    opacity: 1;
+  }
+  40% {
+    transform: rotate(7deg) translateY(0);
+  }
+  55% {
+    transform: rotate(-6deg) translateY(-6px);
+  }
+  72% {
+    transform: rotate(4deg) translateY(0);
   }
   100% {
-    opacity: 0;
-    transform: scale(3.2);
+    opacity: .78;
+    transform: rotate(0deg) translateY(-2px);
   }
 }
 
-@keyframes darbukaHit {
-  0%,
-  7%,
-  29%,
-  39%,
-  59%,
-  69%,
+@keyframes rightStickStrike {
+  0% {
+    opacity: 0;
+    transform: rotate(16deg) translateY(-12px);
+  }
+  18% {
+    opacity: 1;
+  }
+  40% {
+    transform: rotate(-7deg) translateY(0);
+  }
+  55% {
+    transform: rotate(6deg) translateY(-6px);
+  }
+  72% {
+    transform: rotate(-4deg) translateY(0);
+  }
   100% {
+    opacity: .78;
+    transform: rotate(0deg) translateY(-2px);
+  }
+}
+
+@keyframes hitFlash {
+  0% {
     opacity: 0;
     transform: scale(.5);
   }
-  12%,
-  34%,
-  64% {
+  35% {
     opacity: 1;
-    transform: scale(1.25);
+    transform: scale(1.3);
   }
-  18%,
-  42%,
-  74% {
+  100% {
     opacity: 0;
-    transform: scale(2.1);
+    transform: scale(2.2);
   }
 }
 
-@keyframes darbukaBodyBeat {
-  0%,
-  8%,
-  30%,
-  40%,
-  60%,
-  70%,
-  100% {
-    transform: translateY(0) scaleY(1);
+@keyframes drumPulse {
+  0% {
+    opacity: 0;
+    transform: scale(.86);
   }
-  13%,
-  35%,
-  65% {
-    transform: translateY(1.5px) scaleY(.992);
+  20% {
+    opacity: .8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.52);
   }
 }
 
-@keyframes darbukaGlow {
-  0%,
-  8%,
-  30%,
-  40%,
-  60%,
-  70%,
+@keyframes finalDrumPulse {
+  0% {
+    opacity: 0;
+    transform: scale(.88);
+  }
+  18% {
+    opacity: .9;
+  }
   100% {
     opacity: 0;
-    transform: translateX(-50%) scale(.65);
+    transform: scale(4.3);
   }
-  13%,
-  35%,
+}
+
+@keyframes cymbalShimmer {
+  0% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  30% {
+    transform: rotate(2deg) scaleY(.8);
+  }
   65% {
-    opacity: .82;
+    transform: rotate(-1.4deg) scaleY(1.13);
+  }
+  100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+}
+
+@keyframes snareHit {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  35% {
+    transform: scaleY(.82);
+  }
+}
+
+@keyframes drumHalo {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(.7);
+  }
+  35%,
+  62% {
+    opacity: .72;
     transform: translateX(-50%) scale(1.15);
   }
 }
@@ -1403,12 +1487,12 @@ body.is-ready .hero__content {
 
 @media (max-width: 720px) {
   .loader__content {
-    width: min(300px, calc(100vw - 40px));
+    width: min(340px, calc(100vw - 34px));
   }
 
-  .darbuka-loader {
-    width: 126px;
-    height: 184px;
+  .drum-loader {
+    width: min(330px, 88vw);
+    height: 205px;
   }
 
   .loader__identity strong {
@@ -1622,21 +1706,25 @@ body.is-ready .hero__content {
 @media (prefers-reduced-motion: reduce) {
   .loader__content,
   .loader__panel,
-  .darbuka-loader,
-  .darbuka-loader__glow,
-  .darbuka-loader__line,
-  .darbuka-loader__ring,
-  .darbuka-loader__hit,
+  .drum-loader,
+  .drum-loader__halo,
+  .drum-loader__draw,
+  .drum-loader__bass-ring,
+  .drum-loader__stick,
+  .drum-loader__hit,
+  .drum-loader__pulse,
   .loader__identity,
   .loader__line span {
     animation: none !important;
     transition: none !important;
   }
 
-  .darbuka-loader__line {
+  .drum-loader__draw {
     stroke-dashoffset: 0;
   }
 
+  .drum-loader__bass-ring,
+  .drum-loader__stick,
   .loader__identity {
     opacity: 1;
     transform: none;
