@@ -10,6 +10,7 @@ const prefersReducedMotion =
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let loaderFinished = false;
+let loaderStarted = false;
 let loaderExitTimer;
 let loaderHideTimer;
 
@@ -32,13 +33,14 @@ function finishLoader() {
 }
 
 function startLoader() {
-  // Two paint frames ensure that the browser first renders the initial
-  // loader state, then visibly begins the animation.
+  if (loaderStarted) return;
+  loaderStarted = true;
+
   window.requestAnimationFrame(() => {
     window.requestAnimationFrame(() => {
       loader.classList.add("is-playing");
 
-      const visibleDuration = prefersReducedMotion ? 1050 : 2250;
+      const visibleDuration = prefersReducedMotion ? 1050 : 2200;
       loaderExitTimer = window.setTimeout(finishLoader, visibleDuration);
     });
   });
@@ -50,7 +52,6 @@ if (document.readyState === "loading") {
   startLoader();
 }
 
-// The loader can never remain stuck, even if another script fails later.
 window.setTimeout(finishLoader, 5200);
 
 window.addEventListener("scroll", () => {
