@@ -9,32 +9,49 @@ const mobileMenu = document.getElementById("mobileMenu");
 const prefersReducedMotion =
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const loaderStartedAt = performance.now();
 let loaderFinished = false;
+let loaderExitTimer;
+let loaderHideTimer;
 
 function finishLoader() {
   if (loaderFinished) return;
   loaderFinished = true;
 
+  window.clearTimeout(loaderExitTimer);
+  window.clearTimeout(loaderHideTimer);
+
   body.classList.add("is-ready");
   loader.classList.add("is-exiting");
 
-  const exitDuration = prefersReducedMotion ? 40 : 760;
+  const exitDuration = prefersReducedMotion ? 180 : 780;
 
-  window.setTimeout(() => {
+  loaderHideTimer = window.setTimeout(() => {
     loader.classList.add("is-hidden");
     body.classList.remove("is-loading");
   }, exitDuration);
 }
 
-window.addEventListener("load", () => {
-  const minimumDuration = prefersReducedMotion ? 0 : 1680;
-  const elapsed = performance.now() - loaderStartedAt;
-  window.setTimeout(finishLoader, Math.max(0, minimumDuration - elapsed));
-});
+function startLoader() {
+  // Two paint frames ensure that the browser first renders the initial
+  // loader state, then visibly begins the animation.
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      loader.classList.add("is-playing");
 
-// Safety fallback so the opening can never remain stuck.
-window.setTimeout(finishLoader, 4200);
+      const visibleDuration = prefersReducedMotion ? 900 : 2100;
+      loaderExitTimer = window.setTimeout(finishLoader, visibleDuration);
+    });
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", startLoader, { once: true });
+} else {
+  startLoader();
+}
+
+// The loader can never remain stuck, even if another script fails later.
+window.setTimeout(finishLoader, 5200);
 
 window.addEventListener("scroll", () => {
   header.classList.toggle("is-scrolled", window.scrollY > 24);
